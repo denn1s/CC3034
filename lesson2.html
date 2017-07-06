@@ -44,13 +44,17 @@
 				</section>
 
 				<section>
+					<h1>Ejemplo de sorftware que utiliza tecnologias web</h1>
+				</section>
+
+				<section>
 					<section>
           	<h1>WWW</h1>
 						<p>World Wide Web</p>
 					</section>
 					<section>
 						<p>
-							<span>Espacio de informacion</span> <span class="fragment">donde documentos y otros recursos</span>
+							<span>Espacio de informaci&oacute;n</span> <span class="fragment">donde documentos y otros recursos</span>
 							<span class="fragment">son identificados por URLs</span> <span class="fragment">, conectados por hipervinculos</span>
 							<span class="fragment">y accesibles por Internet.</span>
 						</p>
@@ -70,15 +74,14 @@
 					</section>
 					<section>
 						<ul>
-							<li>El internet no es mas que una filosofia de diseno expresada en un set de protocolos (set de reglas y estandares).</li>
-							<li class="fragment">Cualquier nueva tecnologia puede acoplarse al internet si sigue los protocolos.</li>
-							<li class="fragment">ARPANET</li>
+							<li>El internet no es m&aacute;s que una filosof&iacute;a de dise&ntilde;o expresada en un set de protocolos (set de reglas y estandares).</li>
+							<li class="fragment">Cualquier nueva tecnolog&iacute;a puede acoplarse al Internet si sigue sus protocolos.</li>
 							<li class="fragment">TCP/IP</li>
+							<li class="fragment">Su origen est&aacute; en una red creada por el depto. de defensa de USA llamada ARPANET</li>
 						</ul>
 						<aside class="notes">
 							UCLA <-------> Standford
-							LO
-
+							El primer mensaje enviado LO
 							Diagrama de IP
 						</aside>
 					</section>
@@ -89,7 +92,7 @@
 						</p>
 						<ul class="fragment">
 							<li class="fragment">32 bits</li>
-							<li class="fragment">Disenado para identificar el pais, la region, la subred y el dispositivo</li>
+							<li class="fragment">Dise&ntilde;ado para identificar el pa&iacute;s, la regi&oacute;n, la subred y el dispositivo</li>
 							<li class="fragment">1980</li>
 							<li class="fragment">4 billones de direcciones</li>
 						</ul>
@@ -104,17 +107,17 @@
 							<li class="fragment">2<sup>128</sup> direcciones</li>
 							<li class="fragment">340,282,366,920,938,463,463,374,607,431,768,211,456</li>
 						</ul>
-						<aside class="notes">
-							Diagrama de IP
-						</aside>
 					</section>
 					<section>
           	<h2>TCP</h2>
 						<ul class="fragment">
 							<li class="fragment">Divide recursos en pequenos paquetes</li>
 							<li class="fragment">Los paquetes se pueden rearmar aunque lleguen en desorden</li>
-							<li class="fragment">Validacion de errores</li>
+							<li class="fragment">Validaci&oacute;n de errores</li>
 						</ul>
+						<aside class="notes">
+							En contraste con UDP
+						</aside>
 					</section>
 				</section>
 
@@ -123,7 +126,7 @@
 						<h1>Tim Berners-Lee</h1>
 						<img src="http://internethalloffame.org/sites/default/files/inductees/Berners-Lee_Tim.jpg" />
 						<aside class="notes">
-							20 anos en el futuro
+							10 a&ntilde;os en el futuro
 							CERN
 							HYPERTEXT + INTERNET = TEH WEB
 						</aside>
@@ -140,6 +143,10 @@
 					<section>
 						<img src="https://c2.staticflickr.com/4/3439/3357056295_254fe559ac_z.jpg?zz=1" />
 					</section>
+					<section>
+						<p>Hoy en d&iacute;a hay mas de mil millones de sitios web.</p>
+						<a href="http://www.internetlivestats.com/total-number-of-websites/" target="_blank">http://www.internetlivestats.com/</a>
+					</section>
 				</section>
 
 				<section>
@@ -147,8 +154,142 @@
 						<h2>http://info.cern.ch</h2>
 					</section>
 					<section>
-						<h2>http://info.cern.ch.</h2>
+						<h2>URL</h2>
+						<p>Uniform Resource Locator</p>
+						<p style="white-space: nowrap; font-size: 30px;">scheme:[//[user[:password]@]host[:port]][/path][?query][#fragment]</p>
 					</section>
+					<section>
+						<h2>&iquest;C&oacute;mo se resuelve una URL?</h2>
+						<aside class="notes">
+							DNS Server, 8.8.8.8
+						</aside>
+					</section>
+					<section>
+						<h2>http://info.cern.ch<span style="color: lime">.</span></h2>
+					</section>
+					<section>
+						<h2>DNS ROOT ZONE</h2>
+						<ul>
+							<li>13 root servers</li>
+							<li><a href="http://www.iana.org/domains/root/servers" target="_blank">http://www.iana.org/domains/root/servers</a></li>
+							<li>ICANN</li>
+							<li><a href="http://www.public-root.com/root-server-locations.htm" target="_blank">http://www.public-root.com/root-server-locations.htm</a></li>
+							<li>Los root servers tienen registradas las IP de los TLD servers</li>
+						</ul>
+						<aside class="notes">
+							Un ZONE FILE es una colecci&oacute;n (tabla) que asocia ips a nombres de dominio
+						</aside>
+					</section>
+					<section>
+						<h2>http://info.cern.<span style="color: lime">ch</span>.</h2>
+					</section>
+					<section>
+						<h2>TLD</h2>
+						<ul>
+							<li>1984: com, edu, gov, mil, org (.net se agrego luego)</li>
+							<li>2011: 22 TLD</li>
+							<li>2012: se quitaron las restricciones y se establece el precio de un TLD a $185,000</li>
+							<li>2017: 1528 top-level domains regristrados en los root servers</li>
+						</ul>
+					</section>
+					<section>
+						<h2>http://info.<span style="color: lime">cern</span>.ch.</h2>
+					</section>
+					<section>
+						<h2>Dominio</h2>
+					</section>
+					<section>
+						<h2>http://<span style="color: lime">info</span>.cern.ch.</h2>
+					</section>
+					<section>
+						<h2>Sub dominio</h2>
+					</section>
+					<section>
+						<h2>Resumen de DNS</h2>
+						<ol>
+							<li>Revisi&oacute;n local del dominio (/etc/hosts o cache)</li>
+							<li>Solicit&uacute;d al servidor de DNS (8.8.8.8, 8.8.4.4)</li>
+							<li>El servidor de DNS revisa si ya conoce el TLD, si no, se le solicita al root server</li>
+							<li>Se le solicita al TLD (.com) la IP del servidor web</li>
+							<li>Se le solicita al servidor web el subdominio (virtual host)</li>
+							<li>Se le solicita al virtual host el recurso</li>
+						</ol>
+					</section>
+				</section>
+				<section>
+					<h2><span style="color: lime">http</span>://info.cern.ch.</h2>
+				</section>
+				<section>
+					<section>
+						<h2>HTTP</h2>
+						<p>
+							Hypertext Transfer Protocol - Tim Berners-Lee (CERN) 1989
+						</p>
+						<aside class="notes">
+							HTTPS
+							HTTPU
+							Son 6 cosas que necesitamos aprender sobre HTTP
+						</aside>
+					</section>
+					<section>
+						<p>
+							1. HTTP es un protocolo sobre TCP
+							<ul>
+								<li>HTTPU: UDP, UPnP</li>
+								<li>HTTPS: SSL</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<p>
+							2. libre de estado, cada transacci&oacute;n es independiente de la anterior
+						</p>
+					</section>
+					<section>
+						<p>
+							3. cliente servidor
+							<ul>
+								<li>request/response</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<p>
+							4. request: HTTP method
+							<ul>
+								<li>GET</li>
+								<li>POST</li>
+								<li>PUT</li>
+								<li>DELETE</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<p>
+							5. response: status codes
+							<ul>
+								<li><a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</a></li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<p>
+							6. request/response: headers
+							<ul>
+								<li><a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html</a></li>
+							</ul>
+						</p>
+					</section>
+				</section>
+				<section>
+					<h1>HTTP demo</h1>
+				</section>
+				<section style="text-align: left;">
+					<h1>Fin</h1>
+					<p>
+						- Proxima clase: HTML/CSS <br />
+						- &iquest;Preguntas?
+					</p>
 				</section>
 			</div>
 		</div>
