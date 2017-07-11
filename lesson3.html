@@ -26,7 +26,7 @@
 			<div class="slides">
 				<section>
 					<h1>Sistemas y Tecnologías Web</h1>
-					<h3>HTML</h3>
+					<h3>HTML - CSS</h3>
 					<p>
 						<small>por <a href="https://github.com/denn1s">Dennis Aldana</a></small>
 					</p>
@@ -36,7 +36,6 @@
 					<h2>Hoy</h2>
 					<ol>
 						<li>&iquest;Qué es HTML?</li>
-						<li>&iquest;Qué es el document type?</li>
 						<li>&iquest;Qué es un HTML element?</li>
 						<li>&iquest;Qué es CSS?</li>
             <li>&iquest;C&oacute;mo puedo organizar los elementos de html?</li>
@@ -186,7 +185,8 @@
 				</section>
 
         <section>
-        	<h1>HTML Demo</h1>
+        	<h1>DEMO</h1>
+					<p>HTML only</p>
 				</section>
 
         <section>
@@ -377,6 +377,9 @@
 
         <section>
           <h1>DIV</h1>
+					<pre><code class="hljs" data-trim contenteditable>
+						<div></div>
+					</code></pre>
           <aside class="notes">
             caja para guardar componentes
             no fue creada para mostrar texto
@@ -384,8 +387,129 @@
           </aside>
         </section>
 
+				<section>
+	        <section>
+	          <h2>box-model</h2>
+	        </section>
+					<section>
+						<h2>display: display-outside</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+							.title {
+								display: block;
+								display: inline;
+								display: none;
+							}
+						</code></pre>
+						<aside class="notes">
+							display: run-in;
+							visibility: hidden;
+						</aside>
+					</section>
+					<section>
+						<h2>display: display-inside</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+							.title {
+								display: flex;
+								display: grid;
+							}
+						</code></pre>
+						<aside class="notes">
+							display: table;
+							display: flow-root;
+						</aside>
+					</section>
+					<section>
+						<h2>width, height</h2>
+						<h3>min-, max-</h3>
+						<h4 class="fragment">overflow</h4>
+					</section>
+					<section>
+						<h2>border</h2>
+						<aside class="notes">
+							triangles
+							circles
+						</aside>
+					</section>
+					<section>
+						<h2>padding: espacio dentro de la orilla</h2>
+						<h2>margin: espacio fuera de la orilla</h2>
+					</section>
+					<section>
+						<h2>box-sizing</h2>
+						<h3>content-box</h3>
+						<p>content + padding + border: actual width</p>
+						<h3>border-box</h3>
+						<p>width: width</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>position</h1>
+					</section>
+					<section>
+						<h2>position: static</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+							.title {
+								position: static;
+							}
+						</code></pre>
+					</section>
+					<section>
+						<h2>position: relative</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+							.title {
+								position: relative;
+								top: 10px;
+								left: 10px;
+							}
+						</code></pre>
+					</section>
+					<section>
+						<h2>position: absolute</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+							.parent {
+								position: relative;
+							}
 
-
+							.title {
+								position: absolute;
+								top: 10px;
+								left: 10px;
+							}
+						</code></pre>
+					</section>
+					<section>
+						<h2>position: fixed</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+							.title {
+								position: fixed;
+								top: 0;
+								left: 0;
+							}
+						</code></pre>
+					</section>
+					<section>
+						<h2>float / clear</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+							.title {
+								float: left;
+							}
+							.parragraph {
+								clear: left;
+							}
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<h1>DEMO</h1>
+					<p>
+						CSS
+					</p>
+				</section>
+				<section style="text-align: left;">
+					<h1>Tarea</h1>
+					<img class="fragment" src="https://s-media-cache-ak0.pinimg.com/originals/79/59/10/79591087410c4dd0ddd2cc69bf18c5fb.jpg" />
+				</section>
 				<section style="text-align: left;">
 					<h1>Fin</h1>
 					<p>
