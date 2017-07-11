@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Tecnologias web</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Sistemas y Tecnologías Web</h1>
+					<h3>HTML</h3>
+					<p>
+						<small>por <a href="https://github.com/denn1s">Dennis Aldana</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Hoy</h2>
+					<ol>
+						<li>&iquest;Qué es HTML?</li>
+						<li>&iquest;Qué es el document type?</li>
+						<li>&iquest;Qué es un HTML element?</li>
+						<li>&iquest;Qué es CSS?</li>
+            <li>&iquest;C&oacute;mo puedo organizar los elementos de html?</li>
+					</ol>
+				</section>
+
+				<section>
+					<h1>Ejemplo de software que utiliza tecnologias web</h1>
+				</section>
+
+				<section>
+					<section>
+          	<h1>HTML 1</h1>
+            <ul>
+              <li>1990</li>
+              <li>Tim Berners-Lee</li>
+              <li><a href="https://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/Tags.html">https://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/Tags.html</a></li>
+            </ul>
+					</section>
+          <section>
+          	<h1>HTML 2.0</h1>
+            <ul>
+              <li>1995</li>
+              <li>IETF -> HTML Working Group</li>
+            </ul>
+					</section>
+          <section>
+          	<h1>HTML 3.2</h1>
+            <ul>
+              <li>Enero, 1997</li>
+              <li>Tim Berners-Lee -> W3C</li>
+            </ul>
+					</section>
+          <section>
+          	<h1>HTML 4.0</h1>
+            <ul>
+              <li>Diciembre, 1997</li>
+              <li>W3C</li>
+            </ul>
+					</section>
+          <section>
+          	<h1>HTML 5.0</h1>
+            <ul>
+              <li>2014</li>
+              <li>Semantica</li>
+            </ul>
+					</section>
+        </section>
+
+
+        <section>
+        	<h1>DOCTYPE</h1>
+          <pre><code class="hljs" data-trim contenteditable>
+            &lt;!DOCTYPE html&gt;
+          </code></pre>
+				</section>
+
+				<section>
+					<section>
+						<h1>HTML Elements</h1>
+            <img src="https://mdn.mozillademos.org/files/7659/anatomy-of-an-html-element.png" />
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>
+              &lt;hr /&gt;
+            </code></pre>
+					</section>
+          <section>
+            <h1>HTML Root</h1>
+            <pre><code class="hljs" data-trim contenteditable>
+              &lt;html&gt;
+              ...
+              &lt;/html&gt;
+            </code></pre>
+          </section>
+          <section>
+            <h2>Head</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+              &lt;html&gt;
+                &lt;head&gt;&lt;/head&gt;
+                ...
+              &lt;/html&gt;
+            </code></pre>
+            <ul>
+              <li>informaci&oacute;n no desplegable de la p&aacute;gina</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Body</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+              &lt;html&gt;
+                &lt;head&gt;&lt;/head&gt;
+                &lt;body&gt;&lt;/body&gt;
+              &lt;/html&gt;
+            </code></pre>
+            <ul>
+              <li>contenido visible</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Headings</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+              &lt;h1&gt;&lt;/h1&gt;
+              &lt;h2&gt;&lt;/h2&gt;
+              &lt;h3&gt;&lt;/h3&gt;
+              &lt;h4&gt;&lt;/h4&gt;
+              &lt;h5&gt;&lt;/h5&gt;
+              &lt;h6&gt;&lt;/h6&gt;
+            </code></pre>
+          </section>
+          <section>
+            <h2>Parragraphs</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+              &lt;p&gt;&lt;/p&gt;
+            </code></pre>
+          </section>
+          <section>
+            <h2>lists</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+              &lt;ul&gt;
+                &lt;li&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;/li&gt;
+              &lt;ul&gt;
+            </code></pre>
+          </section>
+          <section>
+            <h2>lists</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+              &lt;ol&gt;
+                &lt;li&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;/li&gt;
+              &lt;ol&gt;
+            </code></pre>
+          </section>
+          <section>
+            <h2>hyperlink</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+              &lt;a href="info.cern.ch"&gt;The first website!&lt;/a&gt;
+            </code></pre>
+          </section>
+          <section>
+            <h2>line break</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+              &lt;br /&gt;
+            </code></pre>
+          </section>
+				</section>
+
+        <section>
+        	<h1>HTML Demo</h1>
+				</section>
+
+        <section>
+					<section>
+						<h1>CSS</h1>
+            <p>
+              Cascading Style Sheets
+            </p>
+					</section>
+          <section>
+            <ul>
+              <li>Se encarga de la presentaci&oacute;n del contenido</li>
+              <li>Se puede utilizar para estilizar cualquier documento XML (incluyendo HTML y SVG)</li>
+              <li class="fragment">Fue dise&ntilde;ado para separar la presentaci&oacute;n y el contenido</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Selector</h2>
+            <p>index.html</p>
+            <pre><code class="hljs" data-trim contenteditable>
+              &lt;h1&gt;Hello World&lt;/h1&gt;
+            </code></pre>
+            <p>index.css</p>
+            <pre><code class="hljs" data-trim contenteditable>
+              h1 {
+                color: Maroon;
+              }
+            </code></pre>
+          </section>
+          <section>
+            <h2>Class Selector</h2>
+            <p>index.html</p>
+            <pre><code class="hljs" data-trim contenteditable>
+              &lt;h1 class="title"&gt;Hello World&lt;/h1&gt;
+            </code></pre>
+            <p>index.css</p>
+            <pre><code class="hljs" data-trim contenteditable>
+              h1.title {
+                color: Maroon;
+              }
+            </code></pre>
+          </section>
+          <section>
+            <h2>ID Selector</h2>
+            <p>index.html</p>
+            <pre><code class="hljs" data-trim contenteditable>
+              &lt;h1 class="title" id="num4"&gt;Hello World&lt;/h1&gt;
+            </code></pre>
+            <p>index.css</p>
+            <pre><code class="hljs" data-trim contenteditable>
+              h1.title#num4 {
+                color: Maroon;
+              }
+            </code></pre>
+          </section>
+          <section>
+            <h2>Multiple Selector</h2>
+            <p>index.html</p>
+            <pre><code class="hljs" data-trim contenteditable>
+              &lt;h1 class="title" id="num4"&gt;Hello&lt;/h1&gt;
+              &lt;h1 class="sub" id="num3"&gt;World&lt;/h1&gt;
+            </code></pre>
+            <p>index.css</p>
+            <pre><code class="hljs" data-trim contenteditable>
+              .title, .sub {
+                color: Maroon;
+              }
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Colores en CSS</h1>
+          </section>
+          <section>
+            <h2>por nombre</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+              .title {
+                color: Maroon;
+              }
+            </code></pre>
+          </section>
+          <section>
+            <img src="http://www.mapleprimes.com/DocumentFiles/130123/429594/MapleColors.gif" />
+          </section>
+          <section>
+            <h2>por hexadecimal</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+              .title {
+                color: #0CF;
+                color: #00CCFF;
+                color: #00CCFF7F;  /* html 6? */
+              }
+            </code></pre>
+            <aside class="notes">
+              https://drafts.csswg.org/css-color/#hex-notation00CCFF
+            </aside>
+          </section>
+          <section>
+            <h2>por rgb</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+              .title {
+                color: rgb(122, 133, 0);
+                color: rgba(122, 133, 0, 0.25);
+              }
+            </code></pre>
+          </section>
+          <section>
+            <h2>por hsl</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+              .title {
+                color: hsl(90, 50%, 10%);
+                color: hsla(90, 50%, 10%, 0.25);
+              }
+            </code></pre>
+          </section>
+          <section>
+            <h2>foreground</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+              .title {
+                color: hsl(90, 50%, 10%);
+              }
+            </code></pre>
+            <h2>background</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+              .title {
+                background-color: hsl(90, 50%, 10%);
+              }
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Fuentes en CSS</h1>
+          </section>
+          <section>
+              <h2>Cambiando la fuente de todos los elementos</h2>
+              <pre><code class="hljs" data-trim contenteditable>
+                * {
+                  font-family: "Arial";
+                }
+              </code></pre>
+          </section>
+          <section>
+              <h2>Fallback font</h2>
+              <pre><code class="hljs" data-trim contenteditable>
+                * {
+                  font-family: "Roboto", "Arial", "sans-serif";
+                }
+              </code></pre>
+          </section>
+          <section>
+              <h2>Recursos locales de fuentes</h2>
+              <pre><code class="hljs" data-trim contenteditable>
+                @font-face {
+                    font-family: myFirstFont;
+                    src: url(sansation_light.woff);
+                }
+              </code></pre>
+          </section>
+          <section>
+              <h2>Recursos remotos de fuentes</h2>
+              <pre><code class="hljs" data-trim contenteditable>
+                &lt;link href="//fonts.googleapis.com/css?family=Open+Sans" /&gt;
+              </code></pre>
+          </section>
+          <section>
+              <h1>DEMO</h2>
+              <h2>Propiedades para personalizar el texto</h2>
+              <pre><code class="hljs" data-trim contenteditable>
+                .title {
+                  font-size: 12px;
+                  line-height: 1em;
+                  word-spacing: 1em;
+                  letter-spacing: 1em;
+                  font-weight: 100;
+                  font-style: italic;
+                  text-transform: uppercase
+                  text-align: right;
+                  /* background-color: peach */
+                  /* color: Aqua */
+                }
+              </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <h1>DIV</h1>
+          <aside class="notes">
+            caja para guardar componentes
+            no fue creada para mostrar texto
+            div hell
+          </aside>
+        </section>
+
+
+
+				<section style="text-align: left;">
+					<h1>Fin</h1>
+					<p>
+						- Proxima clase: HTML/CSS <br />
+						- &iquest;Preguntas?
+					</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
