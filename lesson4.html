@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Tecnologias web</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Sistemas y Tecnologías Web</h1>
+					<h3>Web Browsers</h3>
+					<p>
+						<small>por <a href="https://github.com/denn1s">Dennis Aldana</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Hoy</h2>
+					<ol>
+            <li>&iquest;Qué es un web browser?</li>
+						<li>&iquest;Qué es un user agent?</li>
+						<li>&iquest;Qué es un rendering engine?</li>
+						<li>&iquest;Qué es una pseudo clase de CSS?</li>
+						<li>&iquest;Qué es un pseudo elemento de HTML?</li>
+					</ol>
+				</section>
+
+				<section>
+					<section>
+          	<h1>Web Browser</h1>
+            <p>Herramienta para obtener y presentar informaci&oacute;n y recursos de la WWW</p>
+					</section>
+          <section>
+          	<h1>Tim Berners-Lee</h1>
+            <p>
+              1990
+            </p>
+          	<img src="https://upload.wikimedia.org/wikipedia/commons/7/76/WorldWideWeb_FSF_GNU.png" />
+					</section>
+        </section>
+
+        <section>
+          <section>
+            <h1>The Browser Wars</h1>
+            <aside class="notes">
+              <a href="https://www.nczonline.net/blog/2010/01/12/history-of-the-user-agent-string/">
+                https://www.nczonline.net/blog/2010/01/12/history-of-the-user-agent-string/
+              </a>
+            </aside>
+					</section>
+          <section>
+          	<h1>MOSAIC</h1>
+            <ul>
+              <li class="fragment">1993</li>
+              <li class="fragment">NCSA (National Center for Supercomputing Applications)</li>
+              <li class="fragment">Marc Andreessen + Eric Bina</li>
+							<li class="fragment">Introduce a la web la capacidad de desplegar im&aacute;genes</li>
+            </ul>
+					</section>
+					<section>
+            <div class="code"><code class="hljs" data-trim contenteditable>
+              Mosaic/0.9
+            </code></div>
+					</section>
+          <section>
+            <h1>Mozilla</h1>
+            <ul>
+              <li class="fragment">Marc Andreessen</li>
+              <li class="fragment">Mosaic Killer</li>
+              <li class="fragment">A Mosaic no le gusta ese nombre</li>
+            </ul>
+					</section>
+					<section>
+            <div class="code"><code class="hljs" data-trim contenteditable>
+              Mozilla/1.0 (Win3.1)
+            </code></div>
+          </section>
+          <section>
+            <h1>Netscape</h1>
+            <ul>
+              <li class="fragment">1995</li>
+              <li class="fragment">Version 2</li>
+              <li class="fragment">Frames!</li>
+              <li class="fragment">User-Agent sniffing</li>
+            </ul>
+					</section>
+					<section>
+            <div class="code"><code class="hljs" data-trim contenteditable>
+              Mozilla/2.02 [fr] (WinNT; I)
+            </code></div>
+          </section>
+					<section>
+						<h1>JavaScript</h1>
+						<ul>
+							<li class="fragment">Netscape contrata a Brendan Eich para crear un lenguaje basado en Scheme (lisp)</li>
+							<li class="fragment">Netscape colabora con Sun Microsystems para crear un lenguaje que complemente a Java (sintaxis similar)</li>
+							<li class="fragment">Eich prepara una propuesta en 10 d&iacute;as para ganar contra otras propuestas (python, perl, scheme)</li>
+							<li class="fragment">Mocha -> LiveScript -> JavaScript</li>
+							<li class="fragment">Netscape entrega JavaScript a Ecma (organizaci&oacute;n europea de estandares)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Marc Andreessen:</h2>
+						<blockquote>
+							[Netscape will soon reduce Windows to] a poorly debugged set of device drivers.
+						</blockquote>
+					</section>
+
+          <section>
+            <h1>Internet Explorer</h1>
+            <ul>
+              <li class="fragment">Microsoft adquiere el c&oacute;digo fuende MOSAIC</li>
+              <li class="fragment">Soporte de frames</li>
+							<li class="fragment"><a href="http://home.snafu.de/tilman/mozilla/stomps.html">http://home.snafu.de/tilman/mozilla/stomps.html</a></li>
+							<li class="fragment">IE Soporta frames pero los webmasters no le despachan la versi&oacute;n de la p&aacute;gina con frames</li>
+            </ul>
+					</section>
+					<section>
+            <div class="code"><code class="hljs" data-trim contenteditable>
+							Mozilla/2.0 (compatible; MSIE 3.02; Windows 95)
+            </code></div>
+          </section>
+
+					<section>
+						<h1>Internet Explorer</h1>
+						<ul>
+							<li>VBScript / JScript</li>
+							<li>CSS</li>
+							<li>&lt;blink&gt; &lt;marquee&gt;</li>
+						</ul>
+					</section>
+					<section>
+						<p>No hab&iacute;an estandares as&iacute; que los webmasters ten&iacute;an que tomar un bando</p>
+					</section>
+					<section>
+						<img src="https://pepelsbey.net/pres/opera-webkit/pictures/best-viewed-ie.png" />
+					</section>
+					<section>
+						<img src="https://i.giphy.com/media/Np3zZ6YdQpGHm/200_s.gif" />
+					</section>
+
+					<section>
+						<h2>Internet Explorer</h2>
+						<ul>
+							<li class="fragment">Gratis con windows 95</li>
+							<li class="fragment">95% market share</li>
+						</ul>
+						<br />
+						<hr />
+						<br />
+						<h2>Netscape</h2>
+						<ul>
+							<li class="fragment">No gratuito para uso comercial</li>
+							<li class="fragment">Nunca implementa CSS (JSSS)</li>
+							<li class="fragment">Buggy (por ser una suite de aplicaciones)</li>
+						</ul>
+					</section>
+
+					<section>
+						<h1>Fin de la primera guerra de navegadores</h1>
+						<p class="fragment">
+							Con su victoria, internet explorer deja de innovar luego de su versi&oacute;n 6.
+						</p>
+					</section>
+
+					<section>
+						<h1>JavaScript</h1>
+						<ul>
+							<li class="fragment">1997: ECMAScript 1</li>
+							<li class="fragment">1998: ECMAScript 2</li>
+							<li class="fragment">1999: ECMAScript 3</li>
+							<li class="fragment">2000: ECMAScript 4 - Microsoft se incluye a la definici&oacute;n del estandard</li>
+							<li class="fragment">Microsoft en realidad no ten&iacute;a intenci&oacute;n de implementar JavaScript en internet explorer y termina saboteando ES4</li>
+						</ul>
+					</section>
+
+          <section>
+            <h1>Gecko rendering engine</h1>
+            <ul>
+              <li class="fragment">Netscape 6</li>
+            </ul>
+					</section>
+					<section>
+            <div><code class="hljs" data-trim contenteditable>
+							Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:0.9.4) Gecko/20011128 Netscape6/6.2.1
+            </code></div>
+          </section>
+
+	        <section>
+	          <h1>Firefox</h1>
+	          <ul>
+							<li class="fragment">2002</li>
+							<li class="fragment">Originalmente llamado phoenix</li>
+	            <li class="fragment">Gecko rendering engine</li>
+	            <li class="fragment">Reaparece sniffing (buenas p&aacute;ginas para Gecko, malas p&aacute;ginas para IE)</li>
+	          </ul>
+					</section>
+
+					<section>
+	          <div class="code"><code class="hljs" data-trim contenteditable>
+							Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.11) Gecko/20071127 Firefox/2.0.0.11
+	          </code></div>
+        	</section>
+
+		      <section>
+		        <h1>Konqueror</h1>
+		        <ul>
+							<li class="fragment">Creado por la comunidad de linux</li>
+		          <li class="fragment">KHTML rendering engine</li>
+							<li class="fragment">No recibe las "buenas" p&aacute;ginas a pesar de tener la capacidad de renderizarlas</li>
+		        </ul>
+					</section>
+					<section>
+		        <div class="code"><code class="hljs" data-trim contenteditable>
+							Mozilla/5.0 (compatible; Konqueror/3.2; FreeBSD) (KHTML, like Gecko)
+		        </code></div>
+		      </section>
+
+		      <section>
+		        <h1>Webkit</h1>
+		        <ul>
+							<li class="fragment">Apple toma el c&oacute;digo fuente de KHTML y crea su propio fork</li>
+		          <li class="fragment">Webkit es incluido en Safari, el navegador que Apple crea cuando se descontin&uacute;a IE para mac</li>
+		          <li class="fragment">Apple quer&iacute;a las p&aacute;ginas escritas para KHTML</li>
+		        </ul>
+					</section>
+					<section>
+		        <div class="code"><code class="hljs" data-trim contenteditable>
+							Mozilla/5.0 (Macintosh; U; PPC Mac OS X; de-de) AppleWebKit/85.7 (KHTML, like Gecko) Safari/85.5
+		        </code></div>
+		      </section>
+
+					<section>
+						<h1>JavaScript</h1>
+						<ul>
+							<li class="fragment">El trabajo se retoma en 2005 (ahora con 100% m&aacute;s XML) y con la ayuda de Macromedia</li>
+							<li class="fragment">Macromedia toma ES 4 como base para crear ActionScript 3</li>
+						</ul>
+					</section>
+
+					<section>
+						<h1>JavaScript</h1>
+						<ul>
+							<li class="fragment">2004: Google libera GMAIL</li>
+							<li class="fragment">2005: Google libera Google Maps</li>
+							<li class="fragment">Ambas aplicaciones cumplen con estandares y son compatibles con todos los navegadores</li>
+							<li class="fragment">En la comunidad web se acu&ntilde;a el t&eacute;rmino Ajax para unificar el conjunto de tecnologias que fueron usadas por Google (XMLHttpRequest)</li>
+						</ul>
+					</section>
+
+					<section>
+						<h1>JavaScript</h1>
+						<ul>
+							<li class="fragment">2007: Yahoo! se une a microsoft para oponerse a ECMAScript 4, proponiendo un nuevo set de mejoras que llamaron ECMAScript 3.1</li>
+							<li class="fragment">2008: se reunen las partes interesadas en Oslo para hacer la paz</li>
+							<li class="fragment">2009: Nace ECMAScript Harmony, ECMAScript 3.1 se convierte en ECMAScript 5</li>
+						</ul>
+					</section>
+
+					<section>
+						<h1>Google Chrome</h1>
+						<ul>
+							<li class="fragment">Utiliza Webkit como su rendering engina</li>
+							<li class="fragment">Implementa un nuevo engine de javascript conocido como V8</li>
+							<li class="fragment">Como utilizaba el mismo engine que Safari, chrome quer&iacute;a p&aacute;ginas escritas para Safari....</li>
+							<li class="fragment">...por lo tanto, Chrome pretende ser Safari y Webkit pretende ser KHTML y KHTML pretende ser Gecko y todos pretenden ser mozilla</li>
+						</ul>
+					</section>
+					<section>
+		        <div class="code"><code class="hljs" data-trim contenteditable>
+		 					Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.2.149.27 Safari/525.13
+		        </code></div>
+					</section>
+
+					<section style="text-align: left;">
+						<h1>Tarea</h1>
+						<p>
+							- &iquest;Cu&aacute;l es su user agent? <br />
+						</p>
+					</section>
+
+					<section style="text-align: left;">
+						<h1>Fin</h1>
+						<p>
+							- Proxima clase: HTML/CSS <br />
+							- &iquest;Preguntas?
+						</p>
+					</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
