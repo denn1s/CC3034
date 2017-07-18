@@ -291,16 +291,162 @@
 					</section>
 
 					<section style="text-align: left;">
-						<h1>Tarea</h1>
 						<p>
 							- &iquest;Cu&aacute;l es su user agent? <br />
 						</p>
 					</section>
+        </section>
+
+          <section>
+            <section>
+              <h1>&iquest;C&oacute;mo funciona un web browser?</h1>
+              <p>
+                <a href="https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/">
+                  https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/
+                </a>
+              </p>
+            </section>
+            <section>
+              <img src="https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/layers.png" />
+              <aside class="notes">
+                Chrome corre varias instancias del rendering engine
+              </aside>
+            </section>
+
+            <section>
+              <h2>Rendering engine</h2>
+              <p>
+                El trabajo de un engine de renderizado es pintar el texto de html en la pantalla.
+              </p>
+              <ul class="fragment">
+                <li>Internet explorer => Trident</li>
+                <li>Firefox => Gecko</li>
+                <li>Safari => Webkit</li>
+                <li>Chrome => Blink</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>&iquest;Qu&eacute; ocurre al visitar http://google.com?</h2>
+              <ol>
+                <li>Se obtiene el recurso recursos (HTTP GET)</li>
+                <li>Parseo del HTML</li>
+                <li>Creaci&oacute;n del arbol del DOM</li>
+                <li>Creaci&oacute;n del arbol para renderizado</li>
+                <li>Layout del arbol para renderizado</li>
+                <li>Pintar</li>
+              </ol>
+            </section>
+
+            <section>
+              <h2>HTML Parser</h2>
+              <ul class="fragment">
+                <li>Input: HTML / Output: parse tree (DOM)</li>
+                <li>HTML no puede ser parseado por un parser com&uacute;n
+                  <ol>
+                    <li>HTML, por naturaleza, es muy permisivo</li>
+                    <li>Los navegadores tienen, por tradici&oacute;n una gran tolerancia a errores</li>
+                    <li>El c&oacute;digo de HTML puede ser modificado (document.write())</li>
+                  </ol>
+                </li>
+              </ul>
+            </section>
+
+            <section>
+              <pre><code class="hljs" data-trim contenteditable>
+                &lt;html&gt;
+                  &lt;body&gt;
+                    &lt;p&gt;
+                      Hello World
+                    &lt;/p&gt;
+                    &lt;div&gt; &lt;img src="example.png"/&gt;&lt;/div&gt;
+                  &lt;/body&gt;
+                &lt;/html&gt;
+              </code></pre>
+            </section>
+
+            <section>
+              <img src="https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/image015.png" />
+            </section>
+
+            <section>
+              <h2>Render tree</h2>
+              <p>
+                Contiene la informaci&oacute;n visual que el web browser necesita para dibujar la p&aacute;gina
+              </p>
+            </section>
+
+            <section>
+              <img src="https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/image025.png" />
+            </section>
+
+            <section>
+              <ul>
+                <li>Solo elementos visuales estan en el arbol de renderizado</li>
+                <li>En el arbol de renderizado los nodos corresponden a cajas del box-model</li>
+                <li>Para este punto el browser necesita la informaci&oacute;n de estilo (Style Computation)</li>
+                <li>Los elementos position: fixed y position: absolute no est&aacute;n se agregan al arbol si no hasta el final</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>Layout</h2>
+              <p>
+                Proceso de agregar dimenciones a los elementos del render tree (ancho, alto)
+              </p>
+              <ul>
+                <li>Para el alto, se usa un proceso recursivo en el que cada padre pregunta el ancho a sus hijos y luego determina su alto.</li>
+                <li>Para el ancho, el padre primero calcula su ancho y se le dice a los hijos que se organizen con este ancho</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>Painting</h2>
+              <p>
+                Cada nodo del arbol de renderizado se pinta a si mismo.
+              </p>
+              <ul>
+                <li>z-index: stacking context</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>&iquest;Fin?</h2>
+              <ul class="fragment">
+                <li>re-layout + re-painting</li>
+                <li>Cambiar el tama&ntilde;o de la ventana</li>
+                <li>Scripts pueden cambiar el DOM</li>
+                <li>Clic, input</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>re-layout + re-painting</h2>
+              <p>El web browser va a hacer solo el m&iacute;nimo esfuerzo necesario</p>
+              <ul class="fragment">
+                <li>Al cambiar solo el color de un elemento, solo necesita repintar el elemento</li>
+                <li>Al cambiar el tama&ntilde;o de un elemento, solo necesita recalcular ese elemento y el de sus hijos</li>
+                <li>Los cambios se van a memoria y luego se ejecutan en batch</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>&iquest;C&oacute;mo puedo hacer un mejor c&oacute;digo?</h2>
+              <ul class="fragment">
+                <li>Aplicar cambios consecutivos a un elemento no visible (los elementos no visibles estan fuera del arbol)</li>
+                <li>Cambiar una clase en vez de cambiar estilos independientes (solo se hace un re-layout)</li>
+                <li>Mientras m&aacute;s abajo en el arbol se hacen los cambios, tienen un menor impacto</li>
+                <li>Compartir estilos (los hijos comparten estilos del padre)</li>
+                <li>Los rendering engines son single threaded</li>
+              </ul>
+            </section>
+
+          </section>
 
 					<section style="text-align: left;">
 						<h1>Fin</h1>
 						<p>
-							- Proxima clase: HTML/CSS <br />
+							- Proxima clase: Manipulando HTML <br />
 							- &iquest;Preguntas?
 						</p>
 					</section>
