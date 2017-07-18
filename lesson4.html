@@ -37,9 +37,11 @@
 					<ol>
             <li>&iquest;Qué es un web browser?</li>
 						<li>&iquest;Qué es un user agent?</li>
-						<li>&iquest;Qué es un rendering engine?</li>
+						<li>&iquest;C&oacute;mo funciona un web browser?</li>
+            <!--
 						<li>&iquest;Qué es una pseudo clase de CSS?</li>
 						<li>&iquest;Qué es un pseudo elemento de HTML?</li>
+          -->
 					</ol>
 				</section>
 
@@ -385,6 +387,7 @@
                 <li>Solo elementos visuales estan en el arbol de renderizado</li>
                 <li>En el arbol de renderizado los nodos corresponden a cajas del box-model</li>
                 <li>Para este punto el browser necesita la informaci&oacute;n de estilo (Style Computation)</li>
+                <li>CSSOM (CSS Object Model)</li>
                 <li>Los elementos position: fixed y position: absolute no est&aacute;n se agregan al arbol si no hasta el final</li>
               </ul>
             </section>
@@ -416,7 +419,7 @@
                 <li>re-layout + re-painting</li>
                 <li>Cambiar el tama&ntilde;o de la ventana</li>
                 <li>Scripts pueden cambiar el DOM</li>
-                <li>Clic, input</li>
+                <li>Clic, input, hover</li>
               </ul>
             </section>
 
@@ -438,6 +441,16 @@
                 <li>Mientras m&aacute;s abajo en el arbol se hacen los cambios, tienen un menor impacto</li>
                 <li>Compartir estilos (los hijos comparten estilos del padre)</li>
                 <li>Los rendering engines son single threaded</li>
+              </ul>
+            </section>
+
+            <section>
+              <ul class="fragment">
+                <li>Las tags de script se ejecutan sincronicamente (para que puedan utilizar document.write) y deben colocarse al final del body</li>
+                <li>Las tags de script pueden tener un atributo defer, con el que el browser puede decidir si renderizarla al final del DOM</li>
+                <li>Scripts con defer o async no puden utilizar document.write (o innerHTML)</li>
+                <li>Agregar una tag de script con append la ejecuta inmediatamente</li>
+                <li>C&oacute;digo de script dentro de eventos se ejecuta cuando ocurre el evento</li>
               </ul>
             </section>
 
