@@ -35,6 +35,22 @@ class RequestHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(bytes('NOT FOUND', 'utf-8'))
 
+    def do_POST(self):
+        print('command: %s' % self.command)
+        print('path: %s' % self.path)
+        print('version: %s' % self.request_version)
+        print('headers: %s' % self.headers['content-length'])
+
+        # self.send_header('Access-Control-Allow-Credentials', 'true')
+        # self.send_header('Access-Control-Allow-Origin', '*')
+        # self.end_headers()
+
+        content_length = int(self.headers['content-length'])
+        body = self.rfile.read(content_length).decode('utf-8')
+        self.send_response(200, 'ok')
+        self.end_headers()
+        self.wfile.write(bytes(body, 'utf-8'))
+
 
 
 server = HTTPServer((ADDR, PORT), RequestHandler)

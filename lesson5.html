@@ -73,7 +73,15 @@
 						</code></pre>
 					</section>
         </section>
-
+        <section>
+          <h1>Intermedio: css frameworks</h1>
+          <aside class="notes">
+            bulma css
+            pure.css
+            Materialize
+            Bootstrap
+          </aside>
+				</section>
 				<section>
 					<section>
           	<h1>Enviando datos a un servidor</h1>
@@ -102,16 +110,32 @@
 						<h2>&iquest;Qu&eacute; pasa si necesitamos hacer solicitudes programaticamente?</h2>
 						<pre class="fragment"><code class="hljs" data-trim contenteditable>
 							client = new XMLHttpRequest();
-							client.open('GET', 'index.html')
-							client.send()
+							client.open('POST', 'index.html')
+              data = new FormData()
+              data.append('key', 'value')
+							client.send(data)
 						</code></pre>
+					</section>
+        </section>
+        <section>
+					<section>
+          	<h1>Comunicación en tiempo real</h1>
+					</section>
+          <section>
+          	<h2>Long pooling</h2>
+					</section>
+          <section>
+          	<h2>Web sockets</h2>
+					</section>
+          <section>
+          	<h2>HTTP2?</h2>
 					</section>
         </section>
 
 				<section style="text-align: left;">
 					<h1>Fin</h1>
 					<p>
-						- Proxima clase: Manipulando HTML <br />
+						- Proxima clase: npm + dependency management <br />
 						- &iquest;Preguntas?
 					</p>
 				</section>
