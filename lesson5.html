@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Tecnologias web</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Sistemas y Tecnologías Web</h1>
+					<h3>Comunicaci&oacute;n cliente - servidor</h3>
+					<p>
+						<small>por <a href="https://github.com/denn1s">Dennis Aldana</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Hoy</h2>
+					<ol>
+            <li>&iquest;C&oacute;mo puedo obtener recursos de un servidor web?</li>
+						<li>&iquest;C&oacute;mo puedo enviar recursos hacia un servidor web?</li>
+						<li>&iquest;Comunicaci&oacute;n en tiempo real?</li>
+					</ol>
+				</section>
+
+				<section>
+					<section>
+          	<h1>Obteniendo recursos de un servidor web</h1>
+            <p class="fragment">GET</p>
+					</section>
+          <section>
+          	<h1>DEMO: construyendo un servidor web</h1>
+						<p>
+							PARTE 1
+						</p>
+					</section>
+					<section>
+						<h2>HTML link href</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+							&lt;link href='test.css' rel='stylesheet' /&gt;
+						</code></pre>
+					</section>
+					<section>
+						<h2>script src</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+							&lt;script src='test.js' type='application/javascript'&gt;&lt;/script&gt;
+						</code></pre>
+					</section>
+					<section>
+						<h2>&iquest;Qu&eacute; pasa si necesitamos hacer solicitudes programaticamente?</h2>
+						<pre class="fragment"><code class="hljs" data-trim contenteditable>
+							client = new XMLHttpRequest();
+							client.open('GET', 'index.html')
+							client.send()
+						</code></pre>
+					</section>
+        </section>
+
+				<section>
+					<section>
+          	<h1>Enviando datos a un servidor</h1>
+            <p class="fragment">POST, PUT, DELETE</p>
+					</section>
+          <section>
+          	<h1>DEMO: construyendo un servidor web</h1>
+						<p>
+							PARTE 2
+						</p>
+					</section>
+					<section>
+						<h2>HTML form</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+							&lt;form method='GET' action='posttest.html'&gt;
+							&lt;/form&gt;
+						</code></pre>
+					</section>
+					<section>
+						<h2>script src</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+							&lt;script src='test.js' type='application/javascript'&gt;&lt;/script&gt;
+						</code></pre>
+					</section>
+					<section>
+						<h2>&iquest;Qu&eacute; pasa si necesitamos hacer solicitudes programaticamente?</h2>
+						<pre class="fragment"><code class="hljs" data-trim contenteditable>
+							client = new XMLHttpRequest();
+							client.open('GET', 'index.html')
+							client.send()
+						</code></pre>
+					</section>
+        </section>
+
+				<section style="text-align: left;">
+					<h1>Fin</h1>
+					<p>
+						- Proxima clase: Manipulando HTML <br />
+						- &iquest;Preguntas?
+					</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
