@@ -1,0 +1,45 @@
+<body>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+      <input id="input"/>
+      <button id="post">post</button>
+      <script>
+      var last_message = null;
+      $.getJSON('http://127.0.0.1:7000').done(function(result) {
+            var r = null
+            for (var i = 0; i < result.length; i++) {
+              r = result[i]
+              $("<dl><dt>" + r.username + "</dt><dd> " + r.chatmessage + "</dd></dl>").appendTo($(document.body));
+            }
+            last_message = r ? r.rowid : null
+          }
+      )
+      $('#post').click(function(){
+          console.log('post', {
+            username: 'username',
+            chatmessage: $('#input').val()
+          })
+          $.post('http://127.0.0.1:7000/', {
+            username: 'username',
+            chatmessage: $('#input').val()
+          });
+      });
+      (function poll() {
+          $.ajax('http://127.0.0.1:7000/poll', {
+              method: 'POST',
+              timeout: 1000*60*10, //10 minutes
+              dataType: 'json',
+              success: function(r){
+                console.log('poll', r)
+                  $("<dl><dt>" + r.username + "</dt><dd> " + r.chatmessage + "</dd></dl>").appendTo($(document.body));
+                  last_message = r.rowid;
+                  poll();
+              },
+              error: function(a, b, c){
+                console.log('error', a, b, c)
+                // setTimeout(poll, 1000);
+              },
+              data: last_message
+          });
+      }());
+      </script>
+      </body>

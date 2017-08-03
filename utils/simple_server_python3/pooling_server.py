@@ -1,15 +1,21 @@
+import json
 import time
 import threading
 from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
 from SocketServer import ThreadingMixIn
+import sqlite3
+import urlparse
 
 message = None
+conn = None
 
 class Chat_server(BaseHTTPRequestHandler):
     def log_message(self, *args):
         pass
 
     def do_POST(self):
+        print "=================================================="
+        print self.command, self.path, self.headers['user-agent']
         length = int(self.headers['Content-Length'])
         body = self.rfile.read(length)
         path = self.path
@@ -18,80 +24,40 @@ class Chat_server(BaseHTTPRequestHandler):
         res = self.perform_operation(path, body)
         if res:
             self.send_response(200)
-            self.send_header('Content-type', 'text/plain')
+            self.send_header('Content-type', 'application/javascript')
+            self.send_header('Access-Control-Allow-Origin', '*')
             self.end_headers()
             self.wfile.write(res)
         else:
             self.send_response(404)
+        print "=================================================="
 
     def do_GET(self):
-        path = self.path
-        if path.startswith('/'):
-            path = path[1:]
-        res = self.get_html(path)
+        print "=================================================="
+        print self.command, self.path, self.headers['user-agent']
+        conn_get = sqlite3.connect('chat.db')
+        conn_get.row_factory = sqlite3.Row
+        c = conn_get.cursor()
+        c.execute("SELECT rowid, * FROM chat")
+        result = c.fetchall()
+        conn_get.close()
+        res = json.dumps([dict(row) for row in result])
+
         if res:
             self.send_response(200)
-            self.send_header('Content-type', 'text/html')
+            self.send_header('Content-type', 'application/javascript')
+            self.send_header('Access-Control-Allow-Origin', '*')
             self.end_headers()
             self.wfile.write(res)
         else:
             self.send_response(404)
+        print "=================================================="
 
     def perform_operation(self, oper, body):
         if oper=='poll':
             return message.wait(body)
-        elif oper=='post':
+        else:
             return message.post(body)
-
-    def get_html(self, path):
-        if path=='' or path=='index.html':
-            return '''
-            <body>
-            <style>
-            iframe {
-                width: 400px;
-                height: 600px;
-            }
-            </style>
-            <iframe src="room.html"></iframe>
-            <iframe src="room.html"></iframe>
-            <iframe src="room.html"></iframe>
-            <iframe src="room.html"></iframe>
-            </body>
-            '''
-        elif path=='room.html':
-            return '''
-            <body>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-            <input id="input"/>
-            <button id="post">post</button>
-            <script>
-            $('#post').click(function(){
-                $.ajax('/post', {
-                    method: 'POST',
-                    timeout: 1000,
-                    data: $('#input').val()
-                });
-            });
-            var last_message = '';
-            (function poll() {
-                $.ajax('/poll', {
-                    method: 'POST',
-                    timeout: 1000*60*10, //10 minutes
-                    success: function(data){
-                        $("<p>"+data+"</p>").appendTo($(document.body));
-                        last_message = data;
-                        poll();
-                    },
-                    error: function(){
-                        setTimeout(poll, 1000);
-                    },
-                    data: last_message
-                });
-            }());
-            </script>
-            </body>
-            '''
 
 
 class Message():
@@ -101,13 +67,14 @@ class Message():
         self.event = threading.Event()
         self.lock = threading.Lock()
         self.event.clear()
+        self.message = {}
+        self.id = None
 
-    def wait(self, last_mess=''):
-        if message.data != last_mess and time.time()-message.time < 60:
-            # resend the previous message if it is within 1 min
-            return message.data
+    def wait(self, last_mess=None):
+        if last_mess and message.id != last_mess:
+            return json.dumps(message.message)
         self.event.wait()
-        return message.data
+        return json.dumps(message.message)
 
     def post(self, data):
         with self.lock:
@@ -115,6 +82,19 @@ class Message():
             self.time = time.time()
             self.event.set()
             self.event.clear()
+            qs = dict(urlparse.parse_qs(data))
+            self.message = {
+                "username":  qs['username'][0],
+                "chatmessage":  qs['chatmessage'][0]
+            }
+            print "Data received: ", self.message
+            conn_thread = sqlite3.connect('chat.db')
+            cursor=conn_thread.cursor()
+            cursor.execute("INSERT INTO chat VALUES ('" + self.message['username'] + "', '" + self.message['chatmessage'] + "')")
+            self.id = cursor.lastrowid
+            print('LAST ROW ID', self.id)
+            conn_thread.commit()
+            conn_thread.close()
         return 'ok'
 
 
@@ -125,6 +105,10 @@ class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
 
 def start_server(handler, host, port):
     global message
+    global conn
+    conn = sqlite3.connect('chat.db')
+    conn.execute('''CREATE TABLE IF NOT EXISTS chat (username text, chatmessage text)''')
+    conn.close()
     message = Message()
 
     httpd = ThreadedHTTPServer((host, port), handler)
@@ -136,4 +120,4 @@ def start_server(handler, host, port):
 
 
 if __name__ == '__main__':
-    start_server(Chat_server, 'localhost', 8000)
+    start_server(Chat_server, '127.0.0.1', 7000)
