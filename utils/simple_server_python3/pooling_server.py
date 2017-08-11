@@ -71,7 +71,7 @@ class Message():
         self.id = None
 
     def wait(self, last_mess=None):
-        if last_mess and message.id != last_mess:
+            if last_mess and message.id != last_mess:
             return json.dumps(message.message)
         self.event.wait()
         return json.dumps(message.message)
@@ -120,4 +120,4 @@ def start_server(handler, host, port):
 
 
 if __name__ == '__main__':
-    start_server(Chat_server, '127.0.0.1', 7000)
+    start_server(Chat_server, '0.0.0.0', 7000)

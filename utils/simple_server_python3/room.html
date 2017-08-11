@@ -2,9 +2,11 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
       <input id="input"/>
       <button id="post">post</button>
-      <script>
+
+      <script type="application/javascript">
+      2
       var last_message = null;
-      $.getJSON('http://127.0.0.1:7000').done(function(result) {
+      $.getJSON('http://52.88.26.79:7000').done(function(result) {
             var r = null
             for (var i = 0; i < result.length; i++) {
               r = result[i]
@@ -14,17 +16,14 @@
           }
       )
       $('#post').click(function(){
-          console.log('post', {
-            username: 'username',
-            chatmessage: $('#input').val()
-          })
-          $.post('http://127.0.0.1:7000/', {
+          $.post('http://52.88.26.79:7000', {
             username: 'username',
             chatmessage: $('#input').val()
           });
+
       });
       (function poll() {
-          $.ajax('http://127.0.0.1:7000/poll', {
+          $.ajax('http://52.88.26.79:7000/poll', {
               method: 'POST',
               timeout: 1000*60*10, //10 minutes
               dataType: 'json',
