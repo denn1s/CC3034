@@ -77,12 +77,12 @@
               window.$.select2 = function() { ... };
               $('select').select2()
             </code></pre>
+            <ul class="fragment">
+              <li class="fragment">&iquest;Por qué está mal que siempre se exponga una variable?</li>
+              <li class="fragment">&iquest;Qué pasa si dos librerias usan la misma variable?</li>
+              <li class="fragment">&iquest;Qué pasa si se implementan las librerias en desorden?</li>
+            </ul>
 					</section>
-          <aside class="notes">
-            Estas estrategias tienen la desventaja de que todas exponen una variable global
-            que pasa si dos librerias usan la misma variable?
-            que pasa si se implementan las librerias en desorden?
-          </aside>
         </section>
 
         <section>
@@ -147,7 +147,7 @@
           <section>
             <ul>
               <li>Universal module definition</li>
-              <li class="fragment">Se enfoca en el navegador</li>
+              <li class="fragment">Implementa CommonJS y AMD</li>
             </ul>
           </section>
           <section>
