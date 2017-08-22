@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Tecnologias web</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Sistemas y Tecnologías Web</h1>
+					<h3>Transpilers</h3>
+					<p>
+						<small>por <a href="https://github.com/denn1s">Dennis Aldana</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Hoy</h2>
+					<ol>
+            <li>&iquest;Qué es un transpilador?</li>
+            <li>&iquest;Por qué usamos transpiladores en javascript?</li>
+            <li>&iquest;Cómo se usa un transpilador?</li>
+					</ol>
+				</section>
+
+				<section>
+					<section>
+          	<h1>Javascript transpiler</h1>
+            <p>
+              source-to-source compiler
+            </p>
+					</section>
+          <section>
+            <ul>
+              <li>Los navegadores y engines server side sólo soportan javascript</li>
+              <li class="fragment">De hecho, ni siquiera soportan cualquier versíon de javascript</li>
+              <li class="fragment"><a href="https://kangax.github.io/compat-table/es6/">https://kangax.github.io/compat-table/es6/</a></li>
+            </ul>
+					</section>
+        </section>
+        <section>
+          <section>
+            <ul>
+              <li class="fragment">Aunque no soporten las especificaciones nuevas de js, al final los navegadores solo soportan lo que pueden ejecutar</li>
+              <li class="fragment">&iquest;Entonces, por qué?</li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li class="fragment">Comodidad de trabajo</li>
+              <li class="fragment">Costumbre</li>
+              <li class="fragment">Ordenar mejor el código</li>
+              <li class="fragment">Permiten utilizar las funciones nuevas de javascript</li>
+            </ul>
+					</section>
+        </section>
+        <section>
+          <section>
+            <h2>Coffeescript</h2>
+            <ul>
+              <li class="fragment">Ruby, Python, Haskell...</li>
+              <li class="fragment">Sintaxis basada en tabs y no en {}</li>
+              <li class="fragment">Array comprehensions</li>
+              <li class="fragment">Mantenido fuertemente por la comunidad de Ruby (viene incluído en RoR)</li>
+            </ul>
+					</section>
+          <section>
+          	<h2>DEMO: Cofeescript</h2>
+            <p>
+              <a href="http://coffeescript.org/#top">
+                http://coffeescript.org
+              </a>
+            </p>
+					</section>
+        </section>
+        <section>
+          <section>
+            <h2>Typescript</h2>
+            <ul>
+              <li class="fragment">Programacíon orientada a objetos (Java, C++)</li>
+              <li class="fragment">Extiende javascript, es decir todo código de javascript corre en typescript</li>
+              <li class="fragment">Agrega tipos y clases</li>
+              <li class="fragment">Mantenido por Microsoft (incluído en visual studio)</li>
+            </ul>
+					</section>
+          <section>
+          	<h2>DEMO: Typescript</h2>
+            <p>
+              <a href="https://www.typescriptlang.org/play/index.html">
+                https://www.typescriptlang.org
+              </a>
+            </p>
+					</section>
+        </section>
+        <section>
+          <section>
+            <h2>Traceur</h2>
+            <ul>
+              <li class="fragment">ES6 -> ES3</li>
+              <li class="fragment">Google</li>
+            </ul>
+					</section>
+          <section>
+          	<h2>DEMO: Traceur</h2>
+            <p>
+              <a href="https://google.github.io/traceur-compiler/demo/repl.html">
+                https://google.github.io/traceur-compiler/demo/repl.html
+              </a>
+            </p>
+					</section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Babel</h2>
+            <ul>
+              <li class="fragment">Syntax transformers</li>
+              <li class="fragment">Plugins</li>
+              <li class="fragment">Polyfill</li>
+            </ul>
+					</section>
+          <section>
+          	<h2>DEMO: Babel</h2>
+            <p>
+              <a href="https://www.typescriptlang.org/play/index.html">
+                https://babeljs.io
+              </a>
+            </p>
+					</section>
+        </section>
+
+        <section>
+          <h2>De transpiladores a javascript</h2>
+          <ul>
+            <li class="fragment">Los presets de babel implementan las stages de ECMA (TC39)</li>
+            <li class="fragment">
+              <a href="https://tc39.github.io/process-document/">
+                https://tc39.github.io/process-document/
+              </a>
+            </li>
+            <li class="fragment">
+              <a href="https://github.com/tc39/proposals">
+                https://github.com/tc39/proposals
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <h2>ES6</h2>
+          </section>
+          <section>
+            <p>
+              Const, Let
+            </p>
+          </section>
+          <section>
+            <p>
+              export / import
+            </p>
+          </section>
+          <section>
+            <p>
+              Arrow functions
+            </p>
+          </section>
+          <section>
+            <p>
+              Clases
+            </p>
+          </section>
+          <section>
+            <p>
+              Objetos con propiedades con el mismo nombre
+            </p>
+          </section>
+          <section>
+            <p>
+              Template strings
+            </p>
+          </section>
+        </section>
+
+				<section style="text-align: left;">
+					<h1>Fin</h1>
+					<p>
+						- Proxima clase: react <br />
+						- &iquest;Preguntas?
+					</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

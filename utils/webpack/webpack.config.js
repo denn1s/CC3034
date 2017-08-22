@@ -6,7 +6,7 @@ module.exports = {
     module: {
         loaders: [
             {
-		test: /\.css$/,
+		            test: /\.css$/,
                 use: [
                   {
                      loader: 'style-loader'
