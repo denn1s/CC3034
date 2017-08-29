@@ -10,7 +10,11 @@ module.exports = {
          {
            test: /\.jsx?$/,
            use: ['babel-loader']
-         }
+         },
+         {
+          test: /\.gif$/,
+          loader: 'url-loader'
+         },
       ]
     }
 }
