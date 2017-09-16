@@ -45,7 +45,7 @@ class Chat_server(BaseHTTPRequestHandler):
 
         if res:
             self.send_response(200)
-            self.send_header('Content-type', 'application/javascript')
+            self.send_header('Content-type', 'application/json')
             self.send_header('Access-Control-Allow-Origin', '*')
             self.end_headers()
             self.wfile.write(res)
@@ -71,7 +71,8 @@ class Message():
         self.id = None
 
     def wait(self, last_mess=None):
-            if last_mess and message.id != last_mess:
+        print 'last mess', last_mess, 'message.id', message.id
+        if last_mess and message.id != last_mess:
             return json.dumps(message.message)
         self.event.wait()
         return json.dumps(message.message)
@@ -82,11 +83,17 @@ class Message():
             self.time = time.time()
             self.event.set()
             self.event.clear()
-            qs = dict(urlparse.parse_qs(data))
-            self.message = {
-                "username":  qs['username'][0],
-                "chatmessage":  qs['chatmessage'][0]
-            }
+            try:
+                qs = dict(urlparse.parse_qs(data))
+                print "Qs", qs
+                self.message = {
+                   "username":  qs['username'][0],
+                   "chatmessage":  qs['chatmessage'][0]
+               }
+            except:
+               print "obj", type(data)
+               self.message = json.loads(data)
+               # qs = json.loads(data)
             print "Data received: ", self.message
             conn_thread = sqlite3.connect('chat.db')
             cursor=conn_thread.cursor()
