@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Tecnologias web</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Sistemas y Tecnologías Web</h1>
+					<h3>Thinking in React</h3>
+					<p>
+						<small><a href="https://facebook.github.io/react/docs/thinking-in-react.html">https://facebook.github.io/react/docs/thinking-in-react.html</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Hoy</h2>
+					<ol>
+            <li>Jerarquía de componentes</li>
+            <li>Dise&ntilde;o estático de la aplicación</li>
+            <li>Dise&ntilde;o del estado</li>
+            <li>Contenedores del estado</li>
+            <li>Flujo de data</li>
+					</ol>
+				</section>
+
+				<section>
+					<section>
+            <p>Una nueva apliación comienza con un dise&ntilde;o y con un API</p>
+          </section>
+          <section>
+            <img src="https://facebook.github.io/react/img/blog/thinking-in-react-mock.png" />
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+            [
+              {category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football"},
+              {category: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball"},
+              {category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball"},
+              {category: "Electronics", price: "$99.99", stocked: true, name: "iPod Touch"},
+              {category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5"},
+              {category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
+            ];
+            </code></pre>
+          </section>
+					<section>
+            <p>Paso 1: Romper el dise&ntilde;o gráfico en una jerarquía de componentes</p>
+          </section>
+          <section>
+            <ul>
+              <li>&iquest;Cómo decidimos que elementos del dise&ntilde;o son componentes?</li>
+              <li class="fragment">de la misma manera que deciden como crear clases y funciones</li>
+              <li class="fragment">de la misma manera que un dise&ntilde;ador organiza su trabajo</li>
+              <li class="fragment">de la misma manera que un desarrollador dise&ntilde;a el API</li>
+            </ul>
+          </section>
+          <section>
+            <img src="https://facebook.github.io/react/img/blog/thinking-in-react-components.png" />
+          </section>
+          <section>
+            <ol>
+              <li>FilterableProductTable (orange): contains the entirety of the example</li>
+              <li>SearchBar (blue): receives all user input</li>
+              <li>ProductTable (green): displays and filters the data collection based on user input</li>
+              <li>ProductCategoryRow (turquoise): displays a heading for each category</li>
+              <li>ProductRow (red): displays a row for each product</li>
+            </ol>
+          </section>
+          <section>
+            <table>
+              <tr>
+                <td>
+                  <img src="https://facebook.github.io/react/img/blog/thinking-in-react-components.png" />
+                </td>
+                <td>
+                  <ul>
+                    <li><code>FilterableProductTable</code>
+                    <ul>
+                      <li><code>SearchBar</code></li>
+                      <li><code>ProductTable</code>
+                    <ul>
+                    <li><code>ProductCategoryRow</code></li>
+                    <li><code>ProductRow</code></li>
+                    </ul></li>
+                    </ul></li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+          </section>
+        </section>
+
+        <section>
+					<section>
+          	<h2>Paso 2: Dise&ntilde;o estático de la aplicación</h2>
+					</section>
+          <section>
+            <ul>
+              <li class="fragment">Se crean clases de cada uno de los componentes</li>
+              <li class="fragment">En una versión estática de un sitio, toda la información se pasa por props</li>
+              <li class="fragment">No utilizen estado, el estado es para interactividad y dinamismo</li>
+              <li class="fragment">top-down o bottom-up</li>
+              <li class="fragment">Los componentes sólo can a tener metodos render</li>
+            </ul>
+          </section>
+          <section>
+            <a href="https://codepen.io/lacker/pen/vXpAgj" target="_blank">https://codepen.io/lacker/pen/vXpAgj</a>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Paso 3: Dise&ntilde;o del estado de la aplicación</h2>
+          </section>
+          <section>
+            <ul>
+              <li class="fragment">&iquest;Cuál es el mínimo estado mutable que se necesita?</li>
+              <li class="fragment">Do Not Repeat Yourself</li>
+              <li class="fragment">&iquest;Cuál es la totalidad de la data de la aplicación?</li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>The original list of products</li>
+              <li>The search text the user has entered</li>
+              <li>The value of the checkbox</li>
+              <li>The filtered list of products</li>
+            </ul>
+          </section>
+          <section>
+            <ol>
+              <li>&iquest;Se pasa de padre a hijo como props?</li>
+              <li>&iquest;Cambia a traves del tiempo?</li>
+              <li>&iquest;Puede ser calculado en base a otras propiedades del componente?</li>
+            </ol>
+          </section>
+          <section>
+            <ul>
+              <li>The search text the user has entered</li>
+              <li>The value of the checkbox</li>
+            </ul>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              {
+                filterText: '',
+                inStockOnly: false
+              }
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Paso 4: &iquest;Cuál componente debe ser el contenedor de este estado?</h2>
+          </section>
+          <section>
+            <ul>
+              <li class="fragment">&iquest;Qué componentes renderizan algo en base a este estado?</li>
+              <li class="fragment">Se debe encontrar un componente que contenga a todos estos</li>
+              <li class="fragment">Si no hay un componente contenedor, se puede crear uno</li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li><code>ProductTable</code> needs to filter the product list based on state and <code>SearchBar</code> needs to display the search text and checked state.</li>
+              <li>The common owner component is <code>FilterableProductTable</code>.</li>
+              <li>It conceptually makes sense for the filter text and checked value to live in <code>FilterableProductTable</code></li>
+            </ul>
+          </section>
+          <section>
+            <a href="https://codepen.io/lacker/pen/ORzEkG">https://codepen.io/lacker/pen/ORzEkG</a>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Paso 5: Flujo de la información y actualización del estado</h2>
+          </section>
+          <section>
+            <ul>
+              <li class="fragment">&iquest;Qué componentes modifican el estado?</li>
+              <li class="fragment">&iquest;Qué modificaciones se pueden realizar al estado?</li>
+              <li class="fragment">Se deben crear métodos para realizar estas modificaciones en el contenedor</li>
+              <li class="fragment">Se deben propagar estos métodos a los hijos para que puedan realizar sus modificaciones</li>
+            </ul>
+          </section>
+          <section>
+            <a href="https://codepen.io/rohan10/pen/qRqmjd">https://codepen.io/rohan10/pen/qRqmjd</a>
+          </section>
+        </section>
+
+
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
