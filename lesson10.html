@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Tecnologias web</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Sistemas y Tecnologías Web</h1>
+					<h3>Javascript linting</h3>
+				</section>
+
+				<section>
+					<h2>Hoy</h2>
+					<ol>
+            <li>&quest;Qué es linting en javascript?</li>
+            <li>&quest;Por qué deberiamos de usar un linter?</li>
+            <li>&quest;Qué opciones tenemos?</li>
+            <li>&quest;Cómo puedo usarlo con webpack?</li>
+					</ol>
+				</section>
+
+				<section>
+					<section>
+            <h1>Javascript linter</h1>
+          </section>
+          <section>
+            <ul>
+              <li>Javascript es un lenguaje sumamente flexible</li>
+            </ul>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              function sum(a, b) {
+                var c = a + b;
+                return c;
+              }
+
+              sum(3, 4)
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              var sum = function (a, b) {
+                  return a + b;
+              }
+
+              sum(3, 4)
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              (function(a,b){return a + b})(3,4)
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              const sum = (a, b) => {
+                const c = a + b
+                return c
+              }
+              sum (3, 4)
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              function MyCalculator(config) {
+                function sum (a, b) { ... }
+                function subs (a, b) { ... }
+                function mult (a, b) { ... }
+
+                return {
+                  sum: sum,
+                  subs: subs,
+                  mult: mult,
+                }
+              }
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              class MyCalculator() {
+                constructor(config) {
+                  ...
+                }
+
+                sum (a, b) { ... }
+                subs (a, b) { ... }
+                mult (a, b) { ... }
+              }
+            </code></pre>
+          </section>
+          <section>
+            <ul>
+              <li>Javascript es un lenguaje sumamente flexible</li>
+              <li>Javascript es un lenguaje interpretado</li>
+            </ul>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              const programVersion = 3.0
+              console.log('Welcome to my calculator program!')
+              console.log('this program is version ' + programVersion)
+              programVersion = 2017
+              console.log('copyright ' + programVersion)
+              prompt('Enter your query')
+            </code></pre>
+          </section>
+          <section>
+            <ul>
+              <li>Linting es el proceso de detección temprana de posibles errores</li>
+              <li>Actualmente se utiliza tambien para enforzar ciertas guias de estilo</li>
+            </ul>
+          </section>
+        </section>
+
+				<section>
+          <h1>Linters de javascript</h1>
+        </section>
+				<section>
+					<section>
+            <h2>JSLint</h2>
+          </section>
+					<section>
+            <ul>
+              <li class="fragment">El primer linter de javascript que se popularizó</li>
+              <li class="fragment">2002 - Douglas Crockford (Javascript the good parts)</li>
+              <li class="fragment">Enforza las ideas personales de su autor</li>
+            </ul>
+          </section>
+					<section>
+            <h3>Ventajas</h3>
+            <ul>
+              <li class="fragment">Viene pre-empacado y listo para usar</li>
+            </ul>
+          </section>
+					<section>
+            <h3>Desventajas</h3>
+            <ul>
+              <li class="fragment">No se puede personalizar</li>
+              <li class="fragment">No se puede utilizar para el mal</li>
+              <li class="fragment">https://en.wikipedia.org/wiki/Douglas_Crockford</li>
+              <li class="fragment">http://dev.hasenj.org/post/3272592502/ibm-and-its-minions</li>
+            </ul>
+          </section>
+          <section>
+            <a href="http://jslint.com/">
+              http://jslint.com/
+            </a>
+          </section>
+        </section>
+        <section>
+					<section>
+            <h2>JSHint</h2>
+          </section>
+          <section>
+            <ul>
+              <li class="fragment">Nace como un fork de JSLint</li>
+              <li class="fragment">Se enfoca en ser mucho mas configurable</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Ventajas</h3>
+            <ul>
+              <li class="fragment">Se puede configurar considerablemente</li>
+              <li class="fragment">Integra soporte de varias librerias de javacript comunes</li>
+              <li class="fragment">Soporte de javascript 6</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Desventajas</h3>
+            <ul>
+              <li class="fragment">La configuración por default es muy permisiva</li>
+              <li class="fragment">Es un poco complejo al configurar</li>
+              <li class="fragment">No permite reglas custom</li>
+            </ul>
+          </section>
+          <section>
+            <a href="http://jshint.com/">
+              http://jshint.com/
+            </a>
+          </section>
+        </section>
+				<section>
+					<section>
+            <h2>ESLint</h2>
+          </section>
+          <section>
+            <ul>
+              <li class="fragment">2013 - Nicolas Zakas</li>
+              <li class="fragment">Se desarrolla con el objetivo que todo sea pluggeable</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Ventajas</h3>
+            <ul>
+              <li class="fragment">Set robusto de reglas</li>
+              <li class="fragment">Facilmente personalizable</li>
+              <li class="fragment">Soporte de javascript 6</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Desventajas</h3>
+            <ul>
+              <li class="fragment">La configuración por default es muy permisiva</li>
+              <li class="fragment">Es un poco complejo al configurar</li>
+              <li class="fragment">No permite reglas custom</li>
+            </ul>
+          </section>
+        </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
