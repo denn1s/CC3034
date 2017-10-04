@@ -32,10 +32,10 @@
 				<section>
 					<h2>Hoy</h2>
 					<ol>
-            <li>&quest;Qué es linting en javascript?</li>
-            <li>&quest;Por qué deberiamos de usar un linter?</li>
-            <li>&quest;Qué opciones tenemos?</li>
-            <li>&quest;Cómo puedo usarlo con webpack?</li>
+            <li>&iquest;Qué es linting en javascript?</li>
+            <li>&iquest;Por qué deberiamos de usar un linter?</li>
+            <li>&iquest;Qué opciones tenemos?</li>
+            <li>&iquest;Cómo puedo usarlo con webpack?</li>
 					</ol>
 				</section>
 
@@ -136,6 +136,7 @@
 				<section>
           <h1>Linters de javascript</h1>
         </section>
+
 				<section>
 					<section>
             <h2>JSLint</h2>
@@ -158,8 +159,16 @@
             <ul>
               <li class="fragment">No se puede personalizar</li>
               <li class="fragment">No se puede utilizar para el mal</li>
-              <li class="fragment">https://en.wikipedia.org/wiki/Douglas_Crockford</li>
-              <li class="fragment">http://dev.hasenj.org/post/3272592502/ibm-and-its-minions</li>
+              <li class="fragment">
+								<a href="https://en.wikipedia.org/wiki/Douglas_Crockford">
+									https://en.wikipedia.org/wiki/Douglas_Crockford
+								</a>
+							</li>
+              <li class="fragment">
+								<a href="http://dev.hasenj.org/post/3272592502/ibm-and-its-minions">
+									http://dev.hasenj.org/post/3272592502/ibm-and-its-minions
+								</a>
+							</li>
             </ul>
           </section>
           <section>
@@ -175,7 +184,7 @@
           <section>
             <ul>
               <li class="fragment">Nace como un fork de JSLint</li>
-              <li class="fragment">Se enfoca en ser mucho mas configurable</li>
+              <li class="fragment">Se enfoca en ser mucho más configurable</li>
             </ul>
           </section>
           <section>
@@ -215,18 +224,108 @@
             <ul>
               <li class="fragment">Set robusto de reglas</li>
               <li class="fragment">Facilmente personalizable</li>
+              <li class="fragment">Soporte de reglas custom</li>
               <li class="fragment">Soporte de javascript 6</li>
+              <li class="fragment">Soporte de JSX</li>
             </ul>
           </section>
           <section>
             <h3>Desventajas</h3>
             <ul>
-              <li class="fragment">La configuración por default es muy permisiva</li>
-              <li class="fragment">Es un poco complejo al configurar</li>
-              <li class="fragment">No permite reglas custom</li>
+              <li class="fragment">Hay bastante que configurar</li>
+              <li class="fragment">Es el más lento</li>
             </ul>
           </section>
+          <section>
+            <a href="https://eslint.org/demo/">
+              https://eslint.org/demo/
+            </a>
+          </section>
         </section>
+
+				<section>
+          <h1>Utilizando ESLint</h1>
+        </section>
+
+				<section>
+					<section>
+	            <pre><code class="hljs" data-trim contenteditable>
+npm install eslint
+# npm install eslint -g
+	            </code></pre>
+					</section>
+					<section>
+							<pre><code class="hljs" data-trim contenteditable>
+# npm install eslint-plugin-react
+eslint --init
+							</code></pre>
+					</section>
+					<section>
+							<pre><code class="hljs" data-trim contenteditable>
+								nano .eslintrc
+							</code></pre>
+					</section>
+					<section>
+							<pre><code class="hljs" data-trim contenteditable>
+								eslint
+							</code></pre>
+					</section>
+					<section>
+						<h1>webpack</h1>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+							npm install eslint-loader
+						</code></pre>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+						const config = {
+						    devServer: {
+						      ...
+
+						      // overlay: true is equivalent
+						      overlay: {
+						        errors: true,
+						        warnings: true,
+						      },
+
+						    },
+						  }
+						</code></pre>
+					</section>
+        </section>
+
+				<section>
+          <h1>Más allá</h1>
+        </section>
+
+				<section>
+					<section>
+						<a href="http://editorconfig.org/">
+							http://editorconfig.org/
+						</a>
+					</section>
+					<section>
+						<a href="https://github.com/prettier/prettier">
+							https://github.com/prettier/prettier
+						</a>
+					</section>
+					<section>
+						<a href="https://github.com/danger/danger-js">
+							https://github.com/danger/danger-js
+						</a>
+					</section>
+        </section>
+
+
+				<section style="text-align: left;">
+					<h1>Fin</h1>
+					<p>
+						- Proxima clase: front end unit testing <br />
+						- &iquest;Preguntas?
+					</p>
+				</section>
 			</div>
 		</div>
 

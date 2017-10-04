@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Tecnologias web</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Sistemas y Tecnologías Web</h1>
+					<h3>Javascript testing</h3>
+				</section>
+
+				<section>
+					<h2>Hoy</h2>
+					<ol>
+            <li>BDD</li>
+            <li>&iquest;Por qué es hacemos test?</li>
+            <li>&iquest;Qué opciones tenemos?</li>
+						<li>&iquest;Cómo se integra la creación de tests al flujo de trabajo?</li>
+					</ol>
+				</section>
+
+				<section>
+					<section>
+						<h1>Intro a BDD</h1>
+					</section>
+					<section>
+						<ul>
+							<li class="fragment">Agile development + TDD</li>
+							<li class="fragment">Historias de usuario -> Criterio de aceptación -> tests -> código</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Historia de usuario</h2>
+						<p>
+							"As a [role] I want [feature] so that [benefit]"
+						</p>
+					</section>
+					<section>
+						<h2>Criterio de aceptación</h2>
+						<p>
+							"Given [initial context], when [event occurs], then [ensure some outcomes]"
+						</p>
+					</section>
+					<section>
+						<h2>Tests</h2>
+						<p>
+							Oración completa que dice qué debería hacer el software
+						</p>
+						<p>
+							En TDD las oraciones deben comenzar con "expect", en BDD con should
+						</p>
+					</section>
+					<section>
+						<h2>Elemplo</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+
+							Story: Returns go to stock
+
+						 As a store owner
+						 In order to keep track of stock
+						 I want to add items back to stock when they're returned.
+
+						 Scenario 1: Refunded items should be returned to stock
+						 Given that a customer previously bought a black sweater from me
+						 And I have three black sweaters in stock.
+						 When he returns the black sweater for a refund
+						 Then I should have four black sweaters in stock.
+
+						 Scenario 2: Replaced items should be returned to stock
+						 Given that a customer previously bought a blue garment from me
+						 And I have two blue garments in stock
+						 And three black garments in stock.
+						 When he returns the blue garment for a replacement in black
+						 Then I should have three blue garments in stock
+						 And two black garments in stock.
+
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+            <h1>Javascript testing</h1>
+          </section>
+
+					<section>
+						<h2>DEMO</h2>
+					</section>
+
+          <section>
+            <h3>&iquest;Por qué?</h3>
+            <ul>
+              <li class="fragment">Para garantizar que el código funciona</li>
+              <li class="fragment">Para organizar el desarrollo (TDD)</li>
+              <li class="fragment">Mejorar la comunicación entre módulos</li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li class="fragment">Código testeable es buen código</li>
+              <li class="fragment">Permite hacer refactors sin preocupaciones</li>
+              <li class="fragment">Menos errores simples llegan a producción</li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li class="fragment">Evita que los bugs regresen</li>
+              <li class="fragment">Facilita las pruebas de código durante el desarrollo</li>
+              <li class="fragment">Reduce el tiempo que se pasa debuggeando el código</li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li class="fragment">Disminuye la necesidad de documentación</li>
+              <li class="fragment">Pasar el código a otras personas es mucho más fácil</li>
+              <li class="fragment">Es lo más profesional para hacer</li>
+            </ul>
+          </section>
+        </section>
+
+				<section>
+          <h1>Términos</h1>
+        </section>
+
+        <section>
+          <section>
+            <h2>Test runner</h2>
+            <p>
+              Una herramienta que recorre archivos, recolecta los tests, los ejecuta y escribe los resultados
+            </p>
+            <ul>
+              <li>Mocha</li>
+              <li>Jasmine</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Assertion library</h2>
+            <p>
+              Librerias para verificar los resultados de los tests
+            </p>
+            <ul>
+              <li>Chai</li>
+              <li>Should, Expect</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Mocks</h2>
+            <p>
+              Librerias para "reemplazar" dependencias de los units durante un test
+            </p>
+            <ul>
+              <li>Sinon</li>
+            </ul>
+          </section>
+        </section>
+
+				<section>
+          <section>
+            <h1>Enzyme</h1>
+          </section>
+          <section>
+            <p>
+              Librería creada por airbnb que empaqueta varias utilidades que facilitan la creación de tests con react
+            </p>
+            <p>
+              La filosofía de Enzyme es no forzar un test suite ni una assertion library en sus usuarios, así que es compatible con cualquiera
+            </p>
+          </section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+							import React from 'react'
+							import {mount, render, shallow} from 'enzyme'
+
+							class Fixture extends React.Component {
+							  render () {
+							    return (
+							      &lt;div id='root'&gt;
+							        &lt;span id='child'&gt;Hello world&lt;/span&gt;
+							      &lt;/div&gt;
+							    )
+							  }
+							}
+						</code></pre>
+					</section>
+        </section>
+
+				<section>
+					<section>
+						<h1>Chai</h1>
+					</section>
+					<section>
+	            <pre><code class="hljs" data-trim contenteditable>
+								$ npm install chai-enzyme --save-dev
+	            </code></pre>
+					</section>
+					<section>
+	            <pre><code class="hljs" data-trim contenteditable>
+								const wrapper = mount(<Fixture />)
+
+								expect(wrapper.find('#child')).to.have.text('Hello World')
+
+								expect(wrapper.find('#child')).to.contain.text('He')
+
+								expect(wrapper.find('#child')).to.not.have.text('Other text')
+								expect(wrapper.find('#child')).to.not.include.text('Other text')
+
+								expect(wrapper.find('#child')).to.have.text().match(/Test/)
+	            </code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Jazmine</h1>
+					</section>
+					<section>
+	            <pre><code class="hljs" data-trim contenteditable>
+								$ npm install jasmine-enzyme --save-dev
+	            </code></pre>
+					</section>
+					<section>
+	            <pre><code class="hljs" data-trim contenteditable>
+								import React from 'react'
+								import { shallow, mount, render } from 'enzyme'
+								import jasmineEnzyme from 'jasmine-enzyme'
+
+								describe("Jasmine suite sample", function() {
+								  beforeEach(() => {
+								    jasmineEnzyme()
+								  })
+
+								  it("contains a certain text", function() {
+								    expect(shallow(&lt;Fixture /&gt;).contains("Hello World")).toEqual(true);
+								  })
+								})
+	            </code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Jest</h1>
+					</section>
+					<section>
+							<pre><code class="hljs" data-trim contenteditable>
+								$ npm install jest-enzyme --save-dev
+							</code></pre>
+					</section>
+					<section>
+							<pre><code class="hljs" data-trim contenteditable>
+								import React from 'react'
+								import { shallow, mount, render } from 'enzyme'
+
+
+								describe('A Jest test suite', function() {
+								  it('should render without throwing an error', function() {
+								    expect(shallow(&lt;Foo /&gt;).contains(<div className="foo">Bar</div>)).toBe(true);
+								  });
+
+								  it('should be selectable by class "foo"', function() {
+								    expect(shallow(&lt;Foo /&gt;).is('.foo')).toBe(true);
+								  });
+
+								  it('should mount in a full DOM', function() {
+								    expect(mount(&lt;Foo /&gt;).find('.foo').length).toBe(1);
+								  });
+
+								  it('should render to static HTML', function() {
+								    expect(render(&lt;Foo /&gt;).text()).toEqual('Bar');
+								  });
+								});
+							</code></pre>
+					</section>
+				</section>
+
+				<section style="text-align: left;">
+					<h1>Fin</h1>
+					<p>
+						- Proxima clase: manejo del estado avanzado <br />
+						- &iquest;Preguntas?
+					</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
