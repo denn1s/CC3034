@@ -1,8 +1,8 @@
 import random
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
-ADDR = "127.0.0.1"
-PORT = 8080
+ADDR = "0.0.0.0"
+PORT = 80
 
 class RequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
