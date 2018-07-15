@@ -2,11 +2,7 @@ import random
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 ADDR = "0.0.0.0"
-<<<<<<< HEAD
-PORT = 80
-=======
 PORT = 7000
->>>>>>> 5b683e120a52e88fc731c075112ce952d12240a2
 
 class RequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):

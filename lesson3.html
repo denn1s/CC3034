@@ -189,7 +189,7 @@
               </code></pre>
                 </section>
                 <section>
-                    <h2>Parragraphs</h2>
+                    <h2>Paragraphs</h2>
                     <pre><code class="hljs" data-trim contenteditable>
                 &lt;p&gt;&lt;/p&gt;
               </code></pre>
@@ -203,6 +203,13 @@
                   &lt;li&gt;&lt;/li&gt;
                 &lt;ul&gt;
               </code></pre>
+                </section>
+                <section>
+                    <h2>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul">
+                            MDN
+                        </a>
+                    </h2>
                 </section>
                 <section>
                     <h2>lists</h2>
@@ -263,6 +270,143 @@
             </section>
 
             <section>
+                <h1>Manejo de errores en html <span class="fragment">?</span></h1>
+            </section>
+
+            <section>
+                <section>
+                    <h1>Recursos externos</h1>
+                </section>
+                <section>
+                    <h2>Anchors</h2>
+                    <pre><code class="hljs" data-trim contenteditable>
+                        Esto es un <a>link</a>
+                      </code></pre>
+                </section>
+                <section>
+                    <h2>Anchors</h2>
+                    <pre><code class="hljs" data-trim contenteditable>
+                        Esto es un <a href="target.html">link</a>
+                      </code></pre>
+                </section>
+                <section>
+                    <h2>Links relativos y absolutos</h2>
+                    <ul>
+                        <li>Los links relativos son links a otros archivos dentro del mismo host</li>
+                        <li>Los links absolutos tienen la url completa, empezando con el schema</li>                        
+                    </ul>
+                </section>
+                <section>
+                    <h2>Anchors</h2>
+                    <pre><code class="hljs" data-trim contenteditable>
+                        Esto es un <a href="http://www.google.com">link absoluto</a>
+                      </code></pre>
+                    <p>
+                        href es un atributo, la sintaxis es atributo="valor"
+                    </p>
+                </section>
+                <section>
+                    <h2>Anchors</h2>
+                    <pre><code class="hljs" data-trim contenteditable>
+                        Esto es un <a href="folder/otro-folder/relative.html">link relativo</a>
+                      </code></pre>
+                </section>
+                <section>
+                    <ul>
+                        <li class="fragment">En el ejemplo, nos vamos adentrando a directorios según el path</li>
+                        <li class="fragment">Para referenciar el folder actual, usamos la "referencia" . </li>
+                        <li class="fragment">Para referenciar al folder padre, usamos la referencia .. </li>
+                        <li class="fragment">Es posible referenciar varios folders arriba del actual usando la referencia .. varias veces</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Anchors</h2>
+                    <pre><code class="hljs" data-trim contenteditable>
+                        Esto es un <a href="/folder-raiz/mis-archivos/relative.html">link relativo a la raiz</a>
+                      </code></pre>
+                </section>
+                <section>
+                    <h2>Espacios?</h2>
+                    <pre><code class="hljs" data-trim contenteditable>
+                        Esto es un <a href="/los%20espacios/son%20malos/relative.html">link con espacios</a>
+                      </code></pre>
+                </section>
+                <section>
+                    <h2>Imágenes</h2>
+                    <pre><code class="hljs" data-trim contenteditable>
+                        <img src="/imagenes/foto.jpg" />
+                      </code></pre>
+                    <p>
+                        El contenido de la imágen está definido afuera de la página web que se está pintando
+                    </p>
+                </section>
+                <section>
+                    <h3>Formatos de imágen</h3>
+                    <ul>
+                        <li>Regularmente usamos imágenes JPG, GIF, PNG o SVG</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>JPG</h3>
+                    <p>
+                        Son buenos para manejar imágenes con grandes cantidades de colores. No permiten pixeles transparentes.
+                    </p>
+                </section>
+                <section>
+                    <h3>GIF</h3>
+                    <p>
+                        Son buenos para animaciones simples, pero tienen una paleta muy limitada de colores. Permiten pixeles transparentes.
+                    </p>
+                </section>
+                <section>
+                    <h3>PNG</h3>
+                    <p>
+                        Es una buena opción de propósito general. Permiten pixeles transparentes.
+                    </p>
+                </section>
+                <section>
+                    <h3>SVG</h3>
+                    <p>
+                        Son vectoriales. Pueden ser escaladas infinitamente sin perder nada de definición. Permiten pixeles transparentes.
+                    </p>
+                </section>
+                <section>
+                    <h2>iframes</h2>
+                    <p>
+                        <pre><code class="hljs" data-trim contenteditable>
+                            &lt;iframe src="/otrapagina/otrapagina.html"&gt;&lt;/iframe&gt;
+                          </code></pre>
+                    </p>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h1>Forms</h1>
+                </section>
+                <section>
+                    <p>
+                        Utilizamos formas para crear solicitudes de HTTP desde las p&aacute;ginas de html
+                    </p>
+                </section>
+                <section>
+                        <p>
+                            <pre><code class="hljs" data-trim contenteditable>
+                                &lt;form method="GET" action="target.html"&gt;
+                                    &lt;input type="text" /&gt;
+                                    &lt;input type="password" /&gt;
+                                    &lt;select&gt;
+                                        &lt;option&gt;Male&lt;/option&gt;
+                                        &lt;option&gt;Female&lt;/option&gt;
+                                        &lt;option&gt;Other&lt;/option&gt;
+                                    &lt;/select&gt;
+                                &lt;/form&gt;
+                              </code></pre>
+                        </p>
+                    </section>
+            </section>
+
+            <section>
                 <h1>DEMO</h1>
                 <p>HTML only</p>
                 <a href="https://codepen.io/denn1s/pen/bROwKL">https://codepen.io/denn1s/pen/bROwKL</a>
@@ -278,12 +422,25 @@
                 <section>
                     <ul>
                         <li>Se encarga de la presentaci&oacute;n del contenido</li>
+                        <li>Esto quiere decir que se encarga de cómo se va a mostrar el contenido al usuario en un web browser</li>
                         <li>Se puede utilizar para estilizar cualquier documento XML (incluyendo HTML y SVG)</li>
                         <li class="fragment">Fue dise&ntilde;ado para separar la presentaci&oacute;n y el contenido</li>
                     </ul>
                 </section>
                 <section>
-                    <h2>Selector</h2>
+                    <h2>Conectando CSS a HTML</h2>
+                    <p>
+                        <pre><code class="hljs" data-trim contenteditable>
+                        &lt;head&gt;
+                            &lt;meta charset='UTF-8' /&gt;
+                            &lt;title&gt;Hello with CSS&lt;/title&gt;
+                            &lt;link rel='stylesheet' href='styles.css' /&gt;
+                        &lt;/head&gt;
+                        </code></pre>
+                    </p>
+                </section>
+                <section>
+                    <h2>Selectores</h2>
                     <p>index.html</p>
                     <pre><code class="hljs" data-trim contenteditable>
               &lt;h1&gt;Hello World&lt;/h1&gt;
@@ -296,7 +453,7 @@
             </code></pre>
                 </section>
                 <section>
-                    <h2>Class Selector</h2>
+                    <h2>Selectores de clases</h2>
                     <p>index.html</p>
                     <pre><code class="hljs" data-trim contenteditable>
               &lt;h1 class="title"&gt;Hello World&lt;/h1&gt;
@@ -309,7 +466,7 @@
             </code></pre>
                 </section>
                 <section>
-                    <h2>ID Selector</h2>
+                    <h2>Selectores de ID</h2>
                     <p>index.html</p>
                     <pre><code class="hljs" data-trim contenteditable>
               &lt;h1 class="title" id="num4"&gt;Hello World&lt;/h1&gt;
@@ -322,7 +479,15 @@
             </code></pre>
                 </section>
                 <section>
-                    <h2>Multiple Selector</h2>
+                    <h2>Comentarios</h2>
+                    <pre><code class="hljs" data-trim contenteditable>
+              h1.title#num4 {
+                color: Maroon; /* Esto es una regla */
+              }
+            </code></pre>
+                </section>
+                <section>
+                    <h2>Selectores Multiples</h2>
                     <p>index.html</p>
                     <pre><code class="hljs" data-trim contenteditable>
               &lt;h1 class="title" id="num4"&gt;Hello&lt;/h1&gt;
@@ -334,6 +499,46 @@
                 color: Maroon;
               }
             </code></pre>
+                </section>
+                <section>
+                    <h2>Reglas  Multiples</h2>
+                    <p>index.html</p>
+                    <pre><code class="hljs" data-trim contenteditable>
+              &lt;h1 class="title" id="num4"&gt;Hello&lt;/h1&gt;
+              &lt;h1 class="sub" id="num3"&gt;World&lt;/h1&gt;
+            </code></pre>
+                    <p>index.css</p>
+                    <pre><code class="hljs" data-trim contenteditable>
+              .title {
+                color: Maroon;   /* punto y coma es importante! */
+                background-color: Purple;
+              }
+            </code></pre>
+                </section>
+                <section>
+                    <h2>Elementos  Multiples</h2>
+                    <p>index.html</p>
+                    <pre><code class="hljs" data-trim contenteditable>
+              &lt;h1&gt;Hello&lt;/h1&gt;
+              &lt;h2&gt;World&lt;/h2&gt;
+            </code></pre>
+                    <p>index.css</p>
+                    <pre><code class="hljs" data-trim contenteditable>
+              h1 {
+                font-size: 10px;
+              }
+              h2 {
+                font-size: 10px;
+              }
+            </code></pre>
+                </section>
+                <section>
+                    <h3>Unidades para modificar el tama&ntilde;o de la letra</h3>
+                    <p>
+                        <a href="https://codepen.io/denn1s/pen/wxMyBo?editors=1100">
+                            https://codepen.io/denn1s/pen/wxMyBo
+                        </a>
+                    </p>
                 </section>
             </section>
 
@@ -412,7 +617,7 @@
               </code></pre>
                 </section>
                 <section>
-                    <h2>Fallback font</h2>
+                    <h2>Fallback fonts</h2>
                     <pre><code class="hljs" data-trim contenteditable>
                 * {
                   font-family: "Roboto", "Arial", "sans-serif";
@@ -482,6 +687,13 @@
                     </aside>
                 </section>
                 <section>
+                    <p>
+                        <a href="https://codepen.io/denn1s/pen/rrxJjq?editors=1100">
+                            https://codepen.io/denn1s/pen/rrxJjq
+                        </a>
+                    </p>
+                </section>
+                <section>
                     <h2>display: display-inside</h2>
                     <pre><code class="hljs" data-trim contenteditable>
 							.title {
@@ -492,6 +704,22 @@
                     <aside class="notes">
                         display: table; display: flow-root;
                     </aside>
+                </section>
+                <section>
+                    <a href="https://codepen.io/denn1s/pen/WKrMzd?editors=1100">
+                        https://codepen.io/denn1s/pen/WKrMzd
+                    </a>
+                    <a class="fragment" href="https://flexboxfroggy.com/">
+                            https://flexboxfroggy.com/
+                    </a>
+                </section>
+                <section>
+                    <a href="https://codepen.io/denn1s/pen/xJZYBx?editors=1100">
+                        https://codepen.io/denn1s/pen/xJZYBx
+                    </a>
+                    <a class="fragment" href="https://cssgridgarden.com/">
+                        https://cssgridgarden.com/
+                    </a>
                 </section>
                 <section>
                     <h2>width, height</h2>
@@ -583,9 +811,6 @@
                 <a href="https://hacks.mozilla.org/2014/09/single-div-drawings-with-css/">https://hacks.mozilla.org/2014/09/single-div-drawings-with-css/</a>
                 <a href="http://a.singlediv.com/">http://a.singlediv.com/</a>
             </section>
-            <section>
-                <h1>Ejemplo de software que utiliza tecnologias web</h1>
-            </section>
             <section style="text-align: left;">
                 <h1>Tarea</h1>
                 <img class="fragment" src="https://s-media-cache-ak0.pinimg.com/originals/79/59/10/79591087410c4dd0ddd2cc69bf18c5fb.jpg" />
@@ -594,7 +819,7 @@
             <section style="text-align: left;">
                 <h1>Fin</h1>
                 <p>
-                    - Proxima clase: HTML/CSS <br /> - &iquest;Preguntas?
+                    - Proxima clase: Web browsers <br /> - &iquest;Preguntas?
                 </p>
             </section>
         </div>
