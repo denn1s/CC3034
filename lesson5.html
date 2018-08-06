@@ -72,16 +72,20 @@
 							client.send()
 						</code></pre>
 					</section>
+
+					<section>
+						<h2>fetch</h2>
+						<pre class="fragment"><code class="hljs" data-trim contenteditable>
+							fetch('http://example.com/movies.json')
+								.then(function(response) {
+								return response.json();
+								})
+								.then(function(myJson) {
+								console.log(myJson);
+								})
+						</code></pre>
+					</section>
         </section>
-        <section>
-          <h1>Intermedio: css frameworks</h1>
-          <aside class="notes">
-            bulma css
-            pure.css
-            Materialize
-            Bootstrap
-          </aside>
-				</section>
 				<section>
 					<section>
           	<h1>Enviando datos a un servidor</h1>
