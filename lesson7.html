@@ -40,11 +40,17 @@
             <li>&iquest;Qué es module bundling?</li>
 					</ol>
 				</section>
-
 				<section>
+          <section>
+            <ul>
+              <li>Los web brosers fueron dise&ntilde;ados para consumir HTML, CSS y Javascript</li>
+              <li class="fragment">Mientras crecen los proyectos, llevar control de estos assets se va complicando</li>
+              <li class="fragment">Manejar la complejidad es una e las tareas más importantes del desarrollo web</li>
+            </ul>
+          </section>
 					<section>
           	<h1>&iquest;Qué es un módulo?</h1>
-					</section>
+          </section>
           <section>
             <ul>
               <li>Fragmento de código auto-contenido</li>
@@ -78,13 +84,23 @@
               $('select').select2()
             </code></pre>
             <ul class="fragment">
-              <li class="fragment">&iquest;Por qué está mal que siempre se exponga una variable?</li>
               <li class="fragment">&iquest;Qué pasa si dos librerias usan la misma variable?</li>
+              <li class="fragment">&iquest;Por qué está mal que siempre se exponga una variable?</li>
               <li class="fragment">&iquest;Qué pasa si se implementan las librerias en desorden?</li>
             </ul>
 					</section>
         </section>
-
+        <section>
+          <section>
+            <h1>Qué es lo que los module bundlers traen a la mesa?</h1>
+          </section>
+          <section>
+            <p>Nos permiten tratar nuestros proyectos como un arbol de dependencias.</p>
+          </section>
+          <section>
+            <img src="lib/img/graph.png" />
+          </section>
+        </section>
         <section>
 					<section>
           	<h1>CommonJS</h1>
@@ -139,7 +155,6 @@
             </code></pre>
           </section>
         </section>
-
         <section>
 					<section>
           	<h1>UMD</h1>
@@ -215,7 +230,74 @@
         </section>
 
         <section>
-          <h1>DEMO: Webpack</h1>
+          <section>
+              <h1>Webpack</h1>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              mkdir demo
+              cd demo
+              npm init
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              npm install webpack webpack-cli
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              # src/index.js
+
+              console.log("Hello world")
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              node_modules/.bin/webpack --mode development
+            </code></pre>
+          </section>
+          <section>
+            <h2>Ejemplo de componentes (manual)</h2>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              # src/component.js
+
+              export default (text = "Hello world") => {
+                const element = document.createElement("div")
+              
+                element.innerHTML = text
+              
+                return element
+              }
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              # src/index.js
+
+              import component from "./component"
+
+              document.body.appendChild(component())
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              npm install html-webpack-plugin --save-dev
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              const HtmlWebpackPlugin = require("html-webpack-plugin")
+
+              module.exports = {
+                plugins: [
+                  new HtmlWebpackPlugin(),
+                ],
+              }
+            </code></pre>
+          </section>
         </section>
 
 				<section style="text-align: left;">
