@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Tecnologias web</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Sistemas y Tecnologías Web</h1>
+					<h3>Temas avanzados</h3>
+				</section>
+
+        <!--
+				<section>
+					<h2>Hoy</h2>
+					<ol>
+            <li>React</li>
+            <li>Vue.js</li>
+            <li>Polymer</li>
+            <li>Firebase</li>
+            <li>GraphQL</li>
+            <li>Bootstrap</li>
+            <li>Sass</li>
+            <li>Server-Side Rendering</li>
+            <li>PWA</li>
+            <li>Electron</li>
+            <li>Canvas</li>
+            <li>Web Assembly</li>
+            <li>WebGL</li>
+					</ol>
+        </section>
+        -->
+
+				<section>
+					<section>
+            <h1>React</h1>
+          </section>
+          <section>
+            <ul>
+              <li>Librería de javascript para construir interfaces</li>
+              <li>No es un framework</li>
+              <li>Permite construir interfaces complejas a partir de peque&ntilde;as partes llamadas componentes</li>
+              <li>Se trabaja en JSX</li>
+            </ul>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              class ShoppingList extends React.Component {
+                render() {
+                  return (
+                    &lt;div className="shopping-list"&gt;
+                    &lt;h1&gt;Shopping List for {this.props.name}&lt;/h1&gt;
+                      &lt;ul&gt;
+                        &lt;li&gt;Instagram&lt;/li&gt;
+                        &lt;li&gt;WhatsApp&lt;/li&gt;
+                        &lt;li&gt;Oculus&lt;/li&gt;
+                      &lt;/ul&gt;
+                    &lt;/div&gt;
+                  );
+                }
+              }
+            </code></pre>
+          </section>
+        </section>
+
+				<section>
+					<section>
+            <h1>Vue.js</h1>
+          </section>
+          <section>
+            <ul>
+              <li>Es un framework para construir interfaces</li>
+              <li>Es muy facil de aprender</li>
+              <li>Se enfoca en las vistas</li>
+              <li>Combina bien con tecnologías modernas</li>              
+            </ul>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              &lt;template&gt;
+                &lt;div id="app-6"&gt;
+                  &lt;p&gt;{{ message }}&lt;/p&gt;
+                  &lt;input v-model="message"&gt;
+                &lt;/div&gt;
+              &lt;/template&gt;
+              
+              &lt;script&gt;
+                var app6 = new Vue({
+                  el: '#app-6',
+                  data: {
+                    message: 'Hello Vue!'
+                  }
+                })
+              &lt;/script&gt;
+            </code></pre>
+          </section>
+        </section>
+
+				<section>
+					<section>
+            <h1>Polymer</h1>
+          </section>
+          <section>
+            <ul>
+              <li>Es una librería para traer web components a la web actual</li>
+              <li>El objetivo de Polymer es desaparecer</li>
+              <li>Se integra con frameworks</li>
+              <li>ES6 + npm</li>              
+            </ul>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              &lt;body&gt;
+                &lt;likeable-element&gt;&lt;/likeable-element&gt;
+              &lt;/body&gt;
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+                import '@polymer/paper-checkbox/paper-checkbox.js';
+
+                // Import the PolymerElement base class and html helper
+                import {PolymerElement, html} from '@polymer/polymer';
+                
+                // Define an element class
+                class LikeableElement extends PolymerElement {
+                
+                  // Define publc API properties
+                  static get properties() { return { liked: Boolean }}
+                
+                  // Define the element's template
+                  static get template() {
+                    return html`
+                      &lt;style&gt;
+                        .response { margin-top: 10px; } 
+                      &lt;/style&gt;
+                      &lt;paper-checkbox checked="{{liked}}"&gt;I like web components.&lt;/paper-checkbox&gt;
+                
+                      &lt;div hidden$="[[!liked]]" class="response"&gt;Web components like you, too.&lt;/div&gt;
+                    `;
+                  }
+                }
+                
+                // Register the element with the browser
+                customElements.define('likeable-element', LikeableElement);
+            </code></pre>
+          </section>
+        </section>
+
+				<section>
+          <section>
+            <h1>Firebase</h1>
+          </section>
+          <section>
+            <ul>
+              <li>Plataforma para facilitar construir aplicaciones</li>
+              <li>Provee servicios de autenticación</li>
+              <li>Provee servicios de bases de datos</li>
+              <li>Provee servicios de hosting</li>              
+            </ul>
+          </section>
+          <section>
+            <img src="https://d25pnt1rrtzbdm.cloudfront.net/uploads/drip/screenshot/737/037.2_Firebase_Authentication_Screenshot.png" />
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>GraphQL</h1>
+          </section>
+          <section>
+            <ul>
+              <li>Query language para APIs</li>
+              <li>Permite reformatear data</li>
+              <li>Permite unificar endpoints</li>
+              <li>Permite tener una interfaz que describe el sitema</li>              
+            </ul>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              var { graphql, buildSchema } = require('graphql');
+
+              // Construct a schema, using GraphQL schema language
+              var schema = buildSchema(`
+                type Query {
+                  hello: String
+                }
+              `);
+              
+              // The root provides a resolver function for each API endpoint
+              var root = {
+                hello: () => {
+                  return 'Hello world!';
+                },
+              };
+              
+              // Run the GraphQL query '{ hello }' and print out the response
+              graphql(schema, '{ hello }', root).then((response) => {
+                console.log(response);
+              });
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Bootstrap</h1>
+          </section>
+          <section>
+            <ul>
+              <li>Es un framework de frontend</li>
+              <li>typography, forms, buttons, tables, navigation, modals, image carousels</li>
+              <li>Muy facil de usar</li>
+              <li>Muy popular</li>              
+            </ul>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              &lt;div class="row"&gt;
+                &lt;div class="col-sm-4"&gt;.col-sm-4&lt;/div&gt;
+                &lt;div class="col-sm-4"&gt;.col-sm-4&lt;/div&gt;
+                &lt;div class="col-sm-4"&gt;.col-sm-4&lt;/div&gt;
+              &lt;/div&gt;
+            </code></pre>
+          </section>
+        </section>
+
+				<section>
+          <section>
+            <h1>Sass</h1>
+          </section>
+          <section>
+            <ul>
+              <li>Lenguaje de extensión de css</li>
+              <li>No es un framework, pero hay muchos frameworks que lo usan</li>
+              <li>Agrega a css varios features como variables/mixins</li>
+              <li>Agrega algunos features de OO</li>
+            </ul>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              $font-stack:    Helvetica, sans-serif;
+              $primary-color: #333;
+              
+              body {
+                font: 100% $font-stack;
+                color: $primary-color;
+              }
+            </code></pre>
+          </section>
+        </section>
+
+				<section>
+          <section>
+            <h1>Server-Side Rendering</h1>
+          </section>
+          <section>
+            <ul>
+              <li>Es una técnica que consiste en preparar el contenido antes de entregarlo al cliente</li>
+              <li>No es un framework y hay muy pocos frameworks que lo proveen</li>
+              <li>Mejora considerablemente la experiencia del usuario</li>
+              <li>SEO</li>
+            </ul>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              app.get('/*', (req, res) =&gt; {
+                const app = ReactDOMServer.renderToString(&lt;App /&gt;);
+              }
+            </code></pre>
+          </section>
+        </section>
+
+				<section>
+          <section>
+            <h1>PWA</h1>
+          </section>
+          <section>
+            <ul>
+              <li>Progressive Web Apps</li>
+              <li>Concepto creado por google, y promocionado por google</li>
+              <li>Service workers</li>
+              <li>Cargan instantaneamente, deben estar disponibles offline</li>
+            </ul>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/sw-test/sw.js', {scope: '/sw-test/'})
+                .then(function(reg) {
+                  // registration worked
+                  console.log('Registration succeeded. Scope is ' + reg.scope);
+                }).catch(function(error) {
+                  // registration failed
+                  console.log('Registration failed with ' + error);
+                });
+              }
+            </code></pre>
+          </section>
+        </section>
+
+				<section>
+          <section>
+            <h1>Electron</h1>
+          </section>
+          <section>
+            <ul>
+              <li>Permite crear aplicaciones para correr en el desktop</li>
+              <li>La aplicación provicionada, idealmente debe ser una PWA</li>
+              <li>Crea paquetes instalables</li>
+              <li>nodejs + chromium</li>
+            </ul>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+              const { app, BrowserWindow } = require('electron')
+
+              function createWindow () {
+                // Create the browser window.
+                win = new BrowserWindow({ width: 800, height: 600 })
+              
+                // and load the index.html of the app.
+                win.loadFile('index.html')
+              }
+              
+              app.on('ready', createWindow)
+            </code></pre>
+          </section>
+        </section>
+
+				<section>
+          <section>
+            <h1>Canvas</h1>
+          </section>
+          <section>
+            <ul>
+              <li>Un area rectangular en una página web</li>
+              <li>Se puede pintar en esa area con javascript</li>
+              <li>Tiene muchas aplicaciones</li>
+            </ul>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+                &lt;canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"&gt;&lt;/canvas&gt;
+            </code></pre>
+          </section>
+          <section>
+              <pre><code class="hljs" data-trim contenteditable>
+                  var c = document.getElementById("myCanvas");
+                  var ctx = c.getContext("2d");
+                  ctx.moveTo(0, 0);
+                  ctx.lineTo(200, 100);
+                  ctx.stroke(); 
+              </code></pre>
+            </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Web Assembly</h1>
+          </section>
+          <section>
+            <ul>
+              <li>Para mejorar el performance</li>
+              <li>Permite a los webbrowsers entender formato binario</li>
+              <li>Reduce el tama&ntilde;o de los archivos</li>
+            </ul>
+          </section>
+          <section>
+              <pre><code class="hljs" data-trim contenteditable>
+                (module
+                  (func (export "fail_me") (result i32)
+                    i32.const 1
+                    i32.const 0
+                  i32.div_s))
+              </code></pre>
+            </section>
+        </section>
+
+        <section>
+            <section>
+              <h1>WebGL</h1>
+            </section>
+            <section>
+              <ul>
+                <li>2D y 3D para el web</li>
+                <li>Trabaja dentro de canvas</li>
+                <li>Inspirado en opengl es</li>
+              </ul>
+            </section>
+            <section>
+                <a href="https://www.tutorialspoint.com/webgl/webgl_cube_rotation.htm">
+                  https://www.tutorialspoint.com/webgl/webgl_cube_rotation.htm
+                </a>
+              </section>
+          </section>
+
+				<section style="text-align: left;">
+					<h1>Fin</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

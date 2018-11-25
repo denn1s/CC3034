@@ -46,15 +46,23 @@
 					</ul>
 				</section>
 				<section>
-					<h2>FLUX</h2>
-					<ul>
-						<li class="fragment">Nace cómo una manera de simplificar la arquitectura MVC</li>
-						<li class="fragment">El modelo FLUX es creado por facebook y presentado el mismo día que se presenta react</li>
-						<li class="fragment">En cuanto a dise&ntilde;o FLUX precede a react</li>
-					</ul>
-				</section>
-				<section>
-					<img src="https://facebook.github.io/flux/img/flux-simple-f8-diagram-1300w.png" />
+					<section>
+						<h2>FLUX</h2>
+						<ul>
+							<li class="fragment">Nace cómo una manera de simplificar la arquitectura MVC</li>
+							<li class="fragment">El modelo FLUX es creado por facebook y presentado el mismo día que se presenta react</li>
+							<li class="fragment">En cuanto a dise&ntilde;o FLUX precede a react</li>
+						</ul>
+					</section>
+					<section>
+						<ul>
+							<li class="fragment">FLUX se refiere a una arquitectura con un flujo de data unidireccional</li>
+							<li class="fragment">En terminos simples, toda la data de la aplicación está en un <em>store</em>, y éste solo puede ser modificado por acciones</li>
+						</ul>
+					</section>
+					<section>
+						<img src="https://facebook.github.io/flux/img/flux-simple-f8-diagram-1300w.png" />
+					</section>
 				</section>
 				<section>
 					<h2>Dispatcher</h2>
@@ -112,10 +120,61 @@
 					</section>
 				</section>
 
+				<section>
+					<section>
+						<h1>Redux</h1>
+					</section>
+					<section>
+						<ul>
+							<li>Redux toma las ideas de FLUX y les da una nueva forma</li>
+							<li>Redux es más como una guia, nos dá una estructura para la aplicación entera y nos obliga a modelar la data en cierta manera</li>
+							<li>El estado entero está en un solo arbol que sólo se puede  alterar con funciones puras a traves de reducers</li>
+						</ul>
+					</section>
+					<section>
+						<ul>
+							<li>Redux hace el flujo de data en la aplicación muy explicito</li>
+							<li>Toda la data de la aplicación esta en un solo <em>store</em>, por lo que conectarse a el es muy simple</li>
+							<li>Ya que solo hay un store y todos los cambios son a traves de variables, debbugear es muy simple</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>MobX</h1>
+					</section>
+					<section>
+						<ul>
+							<li>Las aplicaciones dependen tremendamente del estado, por lo que un estado inconsistente contra las variables locales puede ser muy da&ntilde;ino</li>
+							<li>Muchas de las otras soluciones, protegen el estado utilizando el concepto de inmutabilidad, pero esto trae algunas restriciones</li>
+							<li>MobX propone proteger al estado de inconsistencias enfocandose en que todo lo que se pueda derivar del estado sea previamente derivado</li>
+						</ul>
+					</section>
+					<section>
+						<img src="https://mobx.js.org/getting-started-assets/overview.png" />
+					</section>
+					<section>
+						<ul>
+							<li>El estado se refiera a cualquier data que forma el modelo de la aplicación</li>
+							<li>Las <em>derivaciones</em> se refieren a cualquier valor que puede ser computado en base al estado</li>
+							<li>Las <em>reacciones</em> ejecutan una tarea, pero no producen un valor (I/O por lo general)</li>
+							<li>Las <em>acciones</em> modifican el estado, MobX se encarga que todas las derivaciones y reacciones reciban el cambio</li>
+						</ul>
+					</section>
+					<section>
+						<ul>
+							<li>Mientras que redux se encarga de modelar el flujo de data explicitamente, MobX hace una gran parte explicito</li>
+							<li>MobX se apoya en la mutación, mientras que redux en la inmutabilidad</li>
+							<li>MobX no forza la aplicación a ninguna estructura</li>
+						</ul>
+					</section>
+				</section>
+
 				<section style="text-align: left;">
 					<h1>Fin</h1>
 					<p>
-						- Proxima clase: ya no más \o/ <br />
+						- Proxima clase: Survey! Planning! <br />
 						- &iquest;Preguntas?
 					</p>
 				</section>
