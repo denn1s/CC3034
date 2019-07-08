@@ -65,12 +65,15 @@
         </section>
 
 
-        <section>
+		<section>
 			<section>
-    	      	<h1>Internet</h1>
+				<h1>Internet</h1>
 			</section>
 			<section>
 				<p>Una red de redes interconectadas que utilizan el protocolo TCP/IP</p>
+			</section>
+			<section>
+				<p>Se refiere al envío de mensajes a travez de una red física</p>
 			</section>
 			<section>
 				<ul>
@@ -130,39 +133,45 @@ Yet a revolution had begun" ....
 				</ul>
 			</section>
 			<section>
-        	  	<h2>IP</h2>
-						<p>
-							Internet Protocol v6
-						</p>
-						<ul class="fragment">
-							<li class="fragment">128 bits</li>
-							<li class="fragment">2<sup>128</sup> direcciones</li>
-							<li class="fragment">340,282,366,920,938,463,463,374,607,431,768,211,456</li>
-						</ul>
-					</section>
-					<section>
-          	<h2>TCP</h2>
-						<ul class="fragment">
-							<li class="fragment">Divide recursos en pequenos paquetes</li>
-							<li class="fragment">Los paquetes se pueden rearmar aunque lleguen en desorden</li>
-							<li class="fragment">Validaci&oacute;n de errores</li>
-						</ul>
-						<aside class="notes">
-							En contraste con UDP
-						</aside>
-					</section>
-				</section>
-
-				<section>
-					<section>
-						<h1>Tim Berners-Lee</h1>
-						<img src="http://internethalloffame.org/sites/default/files/inductees/Berners-Lee_Tim.jpg" />
-						<aside class="notes">
-							10 a&ntilde;os en el futuro
-							CERN
-							HYPERTEXT + INTERNET = TEH WEB
-						</aside>
-					</section>
+				<h2>IP</h2>
+				<p>
+					Internet Protocol v6
+				</p>
+				<ul class="fragment">
+					<li class="fragment">128 bits</li>
+					<li class="fragment">2<sup>128</sup> direcciones</li>
+					<li class="fragment">340,282,366,920,938,463,463,374,607,431,768,211,456</li>
+				</ul>
+			</section>
+			<section>
+				<h2>TCP</h2>
+				<ul class="fragment">
+					<li class="fragment">Divide recursos en pequenos paquetes</li>
+					<li class="fragment">Los paquetes se pueden rearmar aunque lleguen en desorden</li>
+					<li class="fragment">Validaci&oacute;n de errores</li>
+				</ul>
+				<aside class="notes">
+					En contraste con UDP
+				</aside>
+			</section>
+			<section>
+				<h2>TCP/IP</h2>
+				<img src="https://www.colocationamerica.com/images/how-tcp-ip-works.jpg" />
+			</section>
+		</section>
+		<section>
+			<h1>World Wide Web</h1>
+		</section>
+		<section>
+			<section>
+				<h1>Tim Berners-Lee</h1>
+				<img src="http://internethalloffame.org/sites/default/files/inductees/Berners-Lee_Tim.jpg" />
+				<aside class="notes">
+					10 a&ntilde;os en el futuro
+					CERN
+					HYPERTEXT + INTERNET = TEH WEB
+				</aside>
+			</section>
 					<section>
 						<h2>El primer sitio web</h2>
 						<p>
@@ -194,10 +203,24 @@ Yet a revolution had begun" ....
 						<p style="white-space: nowrap; font-size: 30px;">scheme:[//[user[:password]@]host[:port]][/path][?query][#fragment]</p>
 					</section>
 					<section>
+						<h2>Port?</h2>
+						<p>
+								Un puerto se refiere a un punto de conección en un servidor.
+						</p>
+						<p>
+								<a href="https://www.webopedia.com/quick_ref/portnumbers.asp" target="_blank">
+									https://www.webopedia.com/quick_ref/portnumbers.asp
+								</a>
+						</p>
+					</section>
+					<section>
 						<h2>&iquest;C&oacute;mo se resuelve una URL?</h2>
 						<aside class="notes">
 							DNS Server, 8.8.8.8
 						</aside>
+					</section>
+					<section>
+						<h2>http://info.cern.ch</h2>
 					</section>
 					<section>
 						<h2>http://info.cern.ch<span style="color: lime">.</span></h2>
@@ -208,13 +231,48 @@ Yet a revolution had begun" ....
 							<li>13 root servers</li>
 							<li><a href="http://www.iana.org/domains/root/servers" target="_blank">http://www.iana.org/domains/root/servers</a></li>
 							<li>ICANN</li>
-							<li><a href="http://www.public-root.com/root-server-locations.htm" target="_blank">http://www.public-root.com/root-server-locations.htm</a></li>
 							<li><a href="http://www.root-servers.org/" target="_blank">http://www.root-servers.org/</a></li>
-							<li>Los root servers tienen registradas las IP de los TLD servers</li>
+							<li>Los root servers tienen registradas las IP de los TLD servers (zone file)</li>
 						</ul>
-						<aside class="notes">
-							Un ZONE FILE es una colecci&oacute;n (tabla) que asocia ips a nombres de dominio
-						</aside>
+					</section>
+					<section>
+						<h2>ZONE FILE</h2>
+						<p>
+							<table>
+								<tbody>
+									<tr>
+										<td>name</td>
+										<td>ttl</td>
+										<td>record class</td>
+										<td>record type</td>
+										<td>record data</td>
+									</tr>
+								</tbody>
+							</table>
+						</p>
+					</section>
+					<section>
+<pre>$ORIGIN example.com.
+$TTL 1h
+example.com.  IN  NS    ns
+example.com.  IN  NS    ns.somewhere.example.
+example.com.  IN  MX    10 mail.example.com.
+@             IN  MX    20 mail2.example.com.
+@             IN  MX    50 mail3
+example.com.  IN  A     192.0.2.1
+example.com.  IN  AAAA  2001:db8:10::1
+ns            IN  A     192.0.2.2
+example.com.  IN  AAAA  2001:db8:10::2
+www           IN  CNAME example.com.
+wwwtest       IN  CNAME www
+mail          IN  A     192.0.2.3
+mail2         IN  A     192.0.2.4
+mail3         IN  A     192.0.2.5
+</pre>
+					</section>
+					<section>
+							<a target="_blank" href="http://www.internic.net/domain/root.zone">http://www.internic.net/domain/root.zone</a>
+						</p>
 					</section>
 					<section>
 						<h2>http://info.cern.<span style="color: lime">ch</span>.</h2>
@@ -229,16 +287,65 @@ Yet a revolution had begun" ....
 						</ul>
 					</section>
 					<section>
+						<h2>TLD groups</h2>
+						<ul>
+							<li>
+								ccTLD
+								<ul>
+									<li>country code top level domain</li>
+									<li>
+										<a target="_blank" href="https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains#Country_code_top-level_domains">
+											Lista
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+									sTLD
+									<ul>
+										<li>sponsored top level domain</li>
+										<li><a target="_blank" href="
+											https://en.wikipedia.org/wiki/Sponsored_top-level_domain">
+											Lista</a></li>
+									</ul>
+							</li>
+							<li>
+									usTLD
+									<ul>
+										<li>unsponsored top level domain</li>
+										<li><a target="_blank" href="
+											https://www.iana.org/domains/root/db">
+											Lista</a></li>
+									</ul>
+							</li>
+						</ul>
+					</section>
+					<section>
 						<h2>http://info.<span style="color: lime">cern</span>.ch.</h2>
 					</section>
 					<section>
 						<h2>Dominio</h2>
+						<ul>
+							<li>Los TLD servers tienen en sus zone files listas de nameservers</li>
+							<li><a target="_blank" href="bestwhois.org/domain_name_data/sample/zone_file/">bestwhois.org/domain_name_data/sample/zone_file/</a></li>
+							<li>Al nameserver se le pide el zone file del domino específico</li>
+							<li><a target="_blank" href="https://www.ultratools.com/tools/dnsLookup">DNS Lookup</a></li>
+						</ul>
 					</section>
 					<section>
 						<h2>http://<span style="color: lime">info</span>.cern.ch.</h2>
 					</section>
 					<section>
 						<h2>Sub dominio</h2>
+						<ul>
+								<li>Los subdominios están en el zone file del servidor (en posesión del nameserver)</li>
+								<li>Es una subdivisión de un dominio</li>
+								<li>No necesita estar en el mismo servidor que el dominio</li>
+								<li>Cuando se creo el http, habian varias aplicaciones y se utilizaban los subdominios para organizarlas, por ejemplo ftp.example.com, smtp.example.com, www.example.com</li>
+							</ul>
+					</section>
+					<section>
+							<img src="https://www.cloudflare.com/img/learning/dns/glossary/dns-root-server/dns-root-server.png" />
 					</section>
 					<section>
 						<h2>Resumen de DNS</h2>
@@ -246,9 +353,9 @@ Yet a revolution had begun" ....
 							<li>Revisi&oacute;n local del dominio (/etc/hosts o cache)</li>
 							<li>Solicit&uacute;d al servidor de DNS (8.8.8.8, 8.8.4.4)</li>
 							<li>El servidor de DNS revisa si ya conoce el TLD, si no, se le solicita al root server</li>
-							<li>Se le solicita al TLD (.com) la IP del servidor web</li>
-							<li>Se le solicita al servidor web el subdominio (virtual host)</li>
-							<li>Se le solicita al virtual host el recurso</li>
+							<li>Se le solicita al TLD (.com) la IP del nameserver</li>
+							<li>Se le solicita al nameserver la dirección del servidor</li>
+							<li>Se le solicita al servidor web el recurso</li>
 						</ol>
 					</section>
 				</section>
@@ -319,7 +426,7 @@ Yet a revolution had begun" ....
 				</section>
 				<section>
 					<section>
-						<h1>HTTP demo</h1>
+						<h1>HTTP Server</h1>
 						<aside class="notes">
 							TELNET
 							1969 RFC 15
@@ -327,20 +434,26 @@ Yet a revolution had begun" ....
 						</aside>
 					</section>
 					<section>
-						<section>
-							<h2>TELNET</h2>
-							<ul>
-								<li>1969</li>
-								<li>Funciona directamente sobre TCP/IP</li>
-								<li>Se cre&oacute; para acceder a sistemas operativos de manera remota</li>
-							</ul>
-						</section>
-						<section>
-							<img src="https://qph.fs.quoracdn.net/main-qimg-85a684cab6f4fa0099497c80ade7a7f6" />
-						</section>
-						<section>
-							<h3>telnet telehack.com</h3>
-						</section>
+						<h2>TELNET</h2>
+						<ul>
+							<li>1969</li>
+							<li>Funciona directamente sobre TCP/IP</li>
+							<li>Se cre&oacute; para acceder a sistemas operativos de manera remota</li>
+							<li>RFC 15</li>
+						</ul>
+					</section>
+					<section>
+							<h2>Qué es un servidor de HTTP?</h2>
+							<ol>
+								<li>Escucha y espera solicitudes de http en una dirección de TCP (ip + puerto)</li>
+								<li>Maneja la solicitúd y envía la respuesta de regreso al usuario</li>
+							</ol>
+					</section>
+					<section>
+						<img src="https://qph.fs.quoracdn.net/main-qimg-85a684cab6f4fa0099497c80ade7a7f6" />
+					</section>
+					<section>
+						<h3>telnet telehack.com</h3>
 					</section>
 				</section>
 				<section>
@@ -357,7 +470,7 @@ Yet a revolution had begun" ....
 				<section style="text-align: left;">
 					<h1>Fin</h1>
 					<p>
-						- Proxima clase: HTML/CSS <br />
+						- Proxima lección: HTML/CSS <br />
 						- &iquest;Preguntas?
 					</p>
 				</section>
