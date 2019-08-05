@@ -26,21 +26,504 @@
 			<div class="slides">
 				<section>
 					<h1>Sistemas y Tecnologías Web</h1>
-					<h3>Comunicaci&oacute;n cliente - servidor</h3>
+					<h3>Javascript</h3>
 					<p>
 						<small>por <a href="https://github.com/denn1s">Dennis Aldana</a></small>
 					</p>
 				</section>
-
+				<section>
+					<h1>You don't know javascript.</h1>
+				</section>
 				<section>
 					<h2>Hoy</h2>
 					<ol>
-            <li>&iquest;C&oacute;mo puedo obtener recursos de un servidor web?</li>
-						<li>&iquest;C&oacute;mo puedo enviar recursos hacia un servidor web?</li>
-						<li>&iquest;Comunicaci&oacute;n en tiempo real?</li>
+						
 					</ol>
 				</section>
 
+				<section>
+						<section>
+							<h1>Intro</h1>
+						</section>
+						<section>
+							<h2>Javascript console</h2>
+							<ul>
+								<li>window</li>
+								<li>document</li>
+								<li>console</li>
+								<li>alert, prompt, confirm</li>
+							</ul>
+						</section>
+						<section>
+<ul style="font-size: 32px">
+<li>Assignment: =</li>
+<li>Math: + (addition), - (subtraction), * (multiplication), and / (division)</li>
+<li>Compound Assignment: +=, -=, *=, and /=</li>
+<li>Increment/Decrement: ++ (increment), -- (decrement)</li>
+<li>Object Property Access: .</li>
+<li>Equality: == (loose-equals), === (strict-equals), != (loose not-equals), !== (strict not-equals)</li>
+<li>Comparison: < (less than), > (greater than), <= (less than or loose-equals), >= (greater than or loose-equals), as in a <= b.</li>
+<li>Logical: && (and), || (or), as in a || b that selects either a or b.</li>
+</ul>
+						</section>
+						<section>
+							<a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators">
+								https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators
+							</a>
+						</section>
+						<section>
+							<h2>Comentarios</h2>
+							<ul>
+								<li> // en linea </li>
+								<li> /* de bloque */ </li>
+							</ul>
+						</section>
+						<section>
+							<h2>Variables</h2>
+							<ul>
+								<li>Las variables deben ser declaradas</li>
+								<li>Javascript usa <em>dynamic typing</em></li>
+							</ul>
+						</section>
+						<section>
+							<p>
+								El propósito de las variables es mantener el <em>estado</em> actual del programa.
+							</p>
+						</section>
+						<section>
+								<h2>Tipos de variables</h2>
+								<pre><code class="hljs" data-trim contenteditable>
+										var a;
+										typeof a;				// "undefined"
+
+										a = "hello world";
+										typeof a;				// "string"
+
+										a = 42;
+										typeof a;				// "number"
+
+										a = true;
+										typeof a;				// "boolean"
+
+										a = null;
+										typeof a;				// bug
+
+										a = undefined;
+										typeof a;				// "undefined"
+
+										a = { b: "c" };
+										typeof a;				// "object"
+								</code></pre>
+							</section>
+						<section>
+								<h2>objetos</h2>
+								<pre><code class="hljs" data-trim contenteditable>
+										var obj = {
+											a: "hello world",
+											b: 42,
+											c: true
+										}
+
+										obj.a		// "hello world"
+										obj.b		// 42
+										obj.c		// true
+
+										obj["a"]	// "hello world"
+										obj["b"]	// 42
+										obj["c"]	// true
+								</code></pre>
+							</section>
+
+						<section>
+								<h2>array?</h2>
+								<pre><code class="hljs" data-trim contenteditable>
+									var arr = [
+										"hello world",
+										42,
+										true
+									]
+									typeof arr		// "object"
+
+									arr[0]			// "hello world"
+									arr[1]			// 42
+									arr[2]			// true
+									arr.length		// 3
+
+								</code></pre>
+							</section>
+							<section>
+								<h2>Object deconstruction</h2>
+								<pre><code class="hljs" data-trim contenteditable>
+									var arr = [
+										"hello world",
+										42,
+										true
+									]
+									var [ a, b, c ] = arr
+
+									a			// "hello world"
+									b			// 42
+									c			// true
+								</code></pre>
+							</section>
+
+							<section>
+									<h2>Object deconstruction (cont.)</h2>
+									<pre><code class="hljs" data-trim contenteditable>
+										var obj = {
+											a: "hello world",
+											b: 42,
+											c: true
+										}
+
+										var { a, b, c } = obj
+									</code></pre>
+								</section>
+
+						<section>
+							<h2>Block</h2>
+							<ul>
+								<li> { } </li>
+								<li> Tipicamente estan pegados a control de flujo </li>
+							</ul>
+						</section>
+						<section>
+							<h2>Function</h2>
+							<ul>
+								<li> function a { } </li>
+								<li> Puede ser llamada despues </li>
+								<li> Puede ser anónima </li>
+							</ul>
+						</section>
+						<section>
+							<p>Una función puede usarse como cualquier objeto</p>
+							<pre><code class="hljs" data-trim contenteditable>
+							function bar() {
+								console.log('bar')
+							}
+
+							bar.a = 100
+
+							setTimeout(bar, 3000)
+							</code></pre>
+						</section>
+				</section>
+				<section>
+					<section>
+						<h1>Scopes</h1>
+					</section>
+					<section>
+						<p>
+							Un scope es un set de reglas que determina como y donde una variable puede ser encontrada.
+							<br /><br />
+
+							Hay dos maneras de acceder a una variable, para asignar (LHS) y para leer (RHS).
+							<br /><br />
+
+							Primero se revisa el scope que se esta ejecutando, despues los de arriba.
+						</p>
+					</section>
+					<section>
+							<pre><code class="hljs" data-trim contenteditable>
+									function foo(a) {
+										console.log(a)
+									}
+
+									foo(2)
+							</code></pre>
+						</section>
+						<section>
+							<pre><code class="hljs" data-trim contenteditable>
+									function foo(a) {
+										console.log(a + b)
+									}
+
+									var b = 3
+									foo(2)
+							</code></pre>
+						</section>
+						<section>
+							<pre><code class="hljs" data-trim contenteditable>
+									function foo(a) {
+										console.log( a + b )
+										var b = 300
+									}
+
+									var b = 3
+									var a = 100
+
+									foo( 2 )
+							</code></pre>
+						</section>
+						<section>
+							<h1>???</h1>
+						</section>
+						<section>
+								<pre><code class="hljs" data-trim contenteditable>
+										function foo(a) {
+											var b
+											console.log( a + b )
+											b = 300
+										}
+	
+										var b = 3
+										var a = 100
+	
+										foo( 2 )
+								</code></pre>
+							</section>
+							<section>
+							<pre><code class="hljs" data-trim contenteditable>
+									function bar(a) {
+										i = 100
+										console.log( a + i )
+									}
+									
+									for (var i=0; i<10; i++) {
+										bar( i * 2 )
+									}
+							</code></pre>
+						</section>
+							<section>
+								<h1>let / const</h1>
+								<ul>
+									<li>Introducido en ES6</li>
+									<li>Pega la variable al scope más cercano</li>
+								</ul>
+						</section>
+						<section>
+								<pre><code class="hljs" data-trim contenteditable>
+								{
+									console.log(a)
+									var a = 5
+								}
+								console.log(a)
+								</code></pre>
+						</section>
+						<section>
+								<pre><code class="hljs" data-trim contenteditable>
+								{
+									let a = 5
+									console.log(a)
+								}
+								let a = 10
+								console.log(a)
+								</code></pre>
+						</section>
+						<section>
+							<h2>Son las funciones más como var o como let?</h2>
+						</section>
+						<section>
+								<pre><code class="hljs" data-trim contenteditable>
+										foo()
+
+										var foo
+
+										function foo() {
+											console.log(1)
+										}
+
+										foo = function() {
+											console.log(2)
+										}
+								</code></pre>
+						</section>
+						<section>
+								<pre><code class="hljs" data-trim contenteditable>
+										function foo() {
+											console.log(1)
+										}
+
+										foo()
+
+										foo = function() {
+											console.log(2)
+										}
+								</code></pre>
+						</section>
+						<section>
+								<pre><code class="hljs" data-trim contenteditable>
+										function foo() {
+											console.log(1)
+										}
+
+										foo()
+
+										function foo() {
+											console.log(2)
+										}
+								</code></pre>
+						</section>
+						<section>
+								<pre><code class="hljs" data-trim contenteditable>
+									foo()
+
+									function foo() {
+										console.log(1)
+									}
+
+									var foo = function() {
+										console.log(2)
+									}
+
+									function foo() {
+										console.log(3)
+									}
+								</code></pre>
+						</section>
+				</section>
+				<section>
+					<section>
+						<h1>this</h1>
+					</section>
+					<section>
+						<p>
+							"this" es lo que llamamos un runtime binding, es un contexto que se crea cuando se ejecuta el scope, no cuando se escribe.
+						</p>
+					</section>
+					<section>
+							<pre><code class="hljs" data-trim contenteditable>
+									function foo(num) {
+										console.log( "foo: " + num )
+										this.count++
+									}
+
+									foo.count = 0
+
+									for (let i=0; i<10; i++) {
+										foo( i )
+									}
+
+									console.log("Total executions:", foo.count)
+							</code></pre>
+					</section>
+					<section>
+							<pre><code class="hljs" data-trim contenteditable>
+									function foo() {
+										console.log(this.a)
+									}
+
+									var a = 2
+
+									foo()
+							</code></pre>
+					</section>
+					<section>
+							<pre><code class="hljs" data-trim contenteditable>
+									(function() {
+										function foo() {
+											console.log(this.a)
+										}
+
+										let a = 2
+
+										foo()
+									})()
+							</code></pre>
+					</section>
+					<section>
+							<pre><code class="hljs" data-trim contenteditable>
+									function foo() {
+										console.log(this.a)
+									}
+
+									let obj = {
+										a: 2,
+										foo: foo
+									}
+
+									obj.foo()
+							</code></pre>
+					</section>
+					<section>
+							<pre><code class="hljs" data-trim contenteditable>
+									function foo() {
+										console.log(this.a)
+									}
+
+									let obj = {
+										a: 2,
+										foo: foo
+									}
+
+									let obj2 = {
+										a: 100,
+										foo: foo
+									}
+
+									obj.foo()
+									obj2.foo()
+							</code></pre>
+					</section>
+					<section>
+							<pre><code class="hljs" data-trim contenteditable>
+									function foo() {
+										console.log(this.a)
+									}
+
+									let obj = {
+										a: 2,
+										foo: foo
+									}
+
+									let a = "global scoped a"
+
+									setTimeout(obj.foo, 1000)
+							</code></pre>
+					</section>
+					<section>
+							<h1>call</h1>
+							<pre><code class="hljs" data-trim contenteditable>
+									function foo() {
+										console.log(this.a)
+									}
+
+									let obj = {
+										a: 2
+									}
+
+									let a = "global scoped a"
+
+									foo.call(obj)
+							</code></pre>
+					</section>
+					<section>
+							<h1>bind</h1>
+							<pre><code class="hljs" data-trim contenteditable>
+									function foo() {
+										console.log(this.a)
+									}
+
+									let obj = {
+										a: 2
+									}
+
+									let bindedFoo = foo.bind(obj)
+
+									let a = "global scoped a"
+
+									setTimeout(bindedFoo, 1000)
+							</code></pre>
+					</section>
+					<section>
+							<h1>bind (cont.)</h1>
+							<pre><code class="hljs" data-trim contenteditable>
+									function foo(param1, param2) {
+										console.log(this.a, param1, param2)
+									}
+
+									let obj = {
+										a: 2
+									}
+
+									let bindedFoo = foo.bind(obj, 'hello', 'world')
+
+									let a = "global scoped a"
+
+									setTimeout(bindedFoo, 1000)
+							</code></pre>
+					</section>
+				</section>
 				<section>
 					<section>
           	<h1>Obteniendo recursos de un servidor web</h1>
