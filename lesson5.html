@@ -524,105 +524,455 @@
 							</code></pre>
 					</section>
 				</section>
+				
 				<section>
 					<section>
-          	<h1>Obteniendo recursos de un servidor web</h1>
-            <p class="fragment">GET</p>
-					</section>
-          <section>
-          	<h1>DEMO: construyendo un servidor web</h1>
-						<p>
-							PARTE 1
-						</p>
+						<h1>FUNCTIONS</h1>
 					</section>
 					<section>
-						<h2>HTML link href</h2>
+						<p>Las funciones en javascript pueden ser tratadas como objetos. A este tipo de funciones se les llama first-class funcions</p>
+						<ul>
+							<li>Las funciones pueden ser asignadas a variables</li>
+							<li>Las funciones pueden ser retornadas por otras funciones</li>
+							<li>Las funciones pueden ser pasadas como argumentos a otras funciones</li>
+						</ul>
+					</section>
+					<section>
+						<p>Las funciones pueden ser asignadas a variables</p>
 						<pre><code class="hljs" data-trim contenteditable>
-							&lt;link href='test.css' rel='stylesheet' /&gt;
-						</code></pre>
-					</section>
-					<section>
-						<h2>script src</h2>
-						<pre><code class="hljs" data-trim contenteditable>
-							&lt;script src='test.js' type='application/javascript'&gt;&lt;/script&gt;
-						</code></pre>
-					</section>
-					<section>
-						<h2>&iquest;Qu&eacute; pasa si necesitamos hacer solicitudes programaticamente?</h2>
-						<pre class="fragment"><code class="hljs" data-trim contenteditable>
-							client = new XMLHttpRequest();
-							client.open('GET', 'index.html')
-							client.send()
-						</code></pre>
-					</section>
+							const sayHello = () => {
+								return 'Hello'
+							} // es posible escribir esto en una línea
 
-					<section>
-						<h2>fetch</h2>
-						<pre class="fragment"><code class="hljs" data-trim contenteditable>
-							fetch('http://example.com/movies.json')
-								.then(function(response) {
-								return response.json();
-								})
-								.then(function(myJson) {
-								console.log(myJson);
-								})
+							console.log(sayHello())
 						</code></pre>
 					</section>
-        </section>
+					<section>
+						<p>Las funciones pueden ser retornadas por otras funciones</p>
+						<pre><code class="hljs" data-trim contenteditable>
+							const greeterMaker = greeting => {
+								return person => {
+									return greeting + ' ' + person
+								}
+							}
+							const sayHelloToPerson = greeterMaker('Hello')
+							const sayHowdyToPerson = greeterMaker('Howdy')
+
+							console.log(sayHelloToPerson('Joanne'))
+							console.log(sayHowdyToPerson('Joanne'))
+						</code></pre>
+					</section>
+					<section>
+						<p>Las funciones pueden ser pasadas como parametro a otras funciones</p>
+						<pre><code class="hljs" data-trim contenteditable>
+							const sayHelloToPerson = (greeter, person) => {
+								return greeter() + ' ' + person;
+							};
+							
+							console.log(sayHelloToPerson(sayHello, 'John'));
+						</code></pre>
+					</section>
+					<section>
+						<h2>Ejemplo</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+							const usernameLongEnough = obj => {
+								return obj.username.length >= 5
+							}
+							
+							const passwordsMatch = obj => {
+								return obj.password === obj.confirmPassword
+							}
+							
+							const objectIsValid = (obj, ...funcs) => {
+								for (let i = 0; i < funcs.length; i++) {
+									if (funcs[i](obj) === false) {
+										return false
+									}
+								}
+							
+								return true
+							}
+							
+							const obj1 = {
+								username: 'abc123',
+								password: 'foobar',
+								confirmPassword: 'foobar',
+							}
+							
+							const obj1Valid = objectIsValid(obj1, usernameLongEnough, passwordsMatch)
+							console.log(obj1Valid)
+
+							const obj2 = {
+								username: 'joe555',
+								password: 'foobar',
+								confirmPassword: 'oops',
+							}
+							
+							const obj2Valid = objectIsValid(obj2, usernameLongEnough, passwordsMatch)
+							console.log(obj2Valid)
+						</code></pre>
+					</section>
+				</section>
+
 				<section>
 					<section>
-          	<h1>Enviando datos a un servidor</h1>
-            <p class="fragment">POST, PUT, DELETE</p>
-					</section>
-          <section>
-          	<h1>DEMO: construyendo un servidor web</h1>
-						<p>
-							PARTE 2
-						</p>
+						<h1>map, filter y reduce</h1>
 					</section>
 					<section>
-						<h2>HTML form</h2>
-						<pre><code class="hljs" data-trim contenteditable>
-							&lt;form method='GET' action='posttest.html'&gt;
-							&lt;/form&gt;
-						</code></pre>
+							<p>
+								<strong>map</strong> crea un nuevo array de elementos con los resultados de llamar a una función para cada elemento del array
+							</p>
+							<pre><code class="hljs" data-trim contenteditable>
+								const numbers = [2, 4, 8, 10]
+								const halves = numbers.map(x => x / 2)
+							</code></pre>
 					</section>
 					<section>
-						<h2>script src</h2>
-						<pre><code class="hljs" data-trim contenteditable>
-							&lt;script src='test.js' type='application/javascript'&gt;&lt;/script&gt;
-						</code></pre>
+						<ul>
+							<li>map se usa cuando tienen un array y quieren hacer algo con cada elemento del array</li>
+							<li>el array resultante es siempre del mismo tamaño del array original</li>
+						</ul>
 					</section>
 					<section>
-						<h2>&iquest;Qu&eacute; pasa si necesitamos hacer solicitudes programaticamente?</h2>
-						<pre class="fragment"><code class="hljs" data-trim contenteditable>
-							client = new XMLHttpRequest();
-							client.open('POST', 'index.html')
-              data = new FormData()
-              data.append('key', 'value')
-							client.send(data)
-						</code></pre>
-					</section>
-        </section>
-        <section>
-					<section>
-          	<h1>Comunicación en tiempo real</h1>
-					</section>
-          <section>
-          	<h2>Long pooling</h2>
-					</section>
-          <section>
-          	<h2>Web sockets</h2>
-					</section>
-          <section>
-          	<h2>HTTP2?</h2>
-					</section>
-        </section>
+							<p>
+								<strong>filter</strong> crea un nuevo array con los elementos que pasen el test en la función que recibe como parámetro 
+							</p>
+							<pre><code class="hljs" data-trim contenteditable>
+									const words = ["spray", "limit", "elite", "exuberant", "destruction", "present"]
 
+									const longWords = words.filter(word => word.length > 6)
+							</code></pre>
+					</section>
+					<section>
+							<ul>
+								<li>filter se usa cuando quieren reducir el número de elementos del array</li>
+								<li>el array resultante es más pequeño que el array original, o igual</li>
+							</ul>
+					</section>
+					<section>
+							<p>
+								<strong>reduce</strong> aplica una función con un acumulador y cada elemento del array.
+							</p>
+							<pre><code class="hljs" data-trim contenteditable>
+									const total = [0, 1, 2, 3].reduce((sum, value) => sum + value, 1)
+							</code></pre>
+					</section>
+					<section>
+						<ul>
+							<li>reduce se usa cuando quieren <em>reducir</em> el resultado de un array a un solo valor</li>
+							<li>el resultado es siempre un solo valor</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+						<section>
+							<h1>callbacks, promises y async</h1>
+						</section>
+						<section>
+							<p>
+								Asincronía se refiere a la ocurrencia de eventos fuera del flujo principal del programa.
+								<br />
+								Esto normalmente se refiere a threads,
+								sin embargo, este no es el caso para javascript, pues es single threaded por diseño.
+								<br />
+								> <em>“asynchronous non-blocking I/O model”</em>
+							</p>
+						</section>
+						<section>
+							<h1>Callbacks</h1>
+							<p>
+								Es un patrón de diseño en el que una función se llama cuando la operación termina
+							</p>
+							<pre><code class="hljs" data-trim contenteditable>
+									document.addEventListener("click", function() {
+										document.getElementById("demo").innerHTML = "Hello World"
+									})
+							</code></pre>
+						</section>
+						<section>
+							<h1>Callback hell</h1>
+							<pre><code class="hljs" data-trim contenteditable>
+									const request = require(‘request’)
+									let result
+									request('http://www.somepage.com', function (error, response, body) {
+											if (error) {
+													result = error
+											}
+											else {
+													result = body
+											}
+									})
+									console.log(result)
+								</code></pre>
+						</section>
+						<section>
+							<h1>Callback hell</h1>
+							<pre><code class="hljs" data-trim contenteditable>
+									request('http://www.somepage.com', function (firstError, firstResponse, firstBody) {
+										if(firstError){
+												// Handle error.
+										}
+										else {
+												request(`http://www.somepage.com/${firstBody.someValue}`, function (secondError, secondResponse, secondBody) {
+														if(secondError){
+																// Handle error.
+														}
+														else {
+																// Use secondBody for something
+														}
+												})
+										}
+								})
+								</code></pre>
+						</section>
+						<section>
+								<h1>Callback hell</h1>
+								<pre><code class="hljs" data-trim contenteditable>
+										request('http://www.somepage.com', function (firstError, firstResponse, firstBody) {
+											if(firstError){
+													// Handle error.
+											}
+											else {
+													request(`http://www.somepage.com/${firstBody.someValue}`, function (secondError, secondResponse, secondBody) {
+															if(secondError){
+																	// Handle error.
+															}
+															else {
+																request(`http://www.somepage.com/${secondBody.someValue}`, function (thirdError, thirdResponse, thirdBody) {
+																	if (thirdError) {
+																		// Handle error.
+																	}
+																	else {
+																		// ...
+																	}
+																}
+															}
+													})
+											}
+									})
+									</code></pre>
+							</section>
+							<section>
+								<img src="https://miro.medium.com/max/2000/1*tR_X2VN31nM7GX_SEJynew.png" />
+							</section>
+							<section>
+								<img src="https://s3.amazonaws.com/com.twilio.prod.twilio-docs/original_images/31orCejQRkSvmchYeZC2GKswNtst-d_xEoSPoP3X-bAm9RRe8hxz59vVZrrRm78VvJgVbuUo5R.png" />
+							</section>
+							<section>
+									<h1>Promesas</h1>
+									<p>
+										Una promesa es un objeto que cubre una función asincrona y notifica cuando termina
+									</p>
+									<pre><code class="hljs" data-trim contenteditable>
+											fetch('http://ifconfig.co')
+												.then(function(result){
+														// Do something with the result
+												})
+												.catch(function(error){
+														// Handle error
+												})
+									</code></pre>
+								</section>
+							<section>
+								<pre><code class="hljs" data-trim contenteditable>
+										function fetch(someValue){
+											return new Promise(function(resolve, reject) {
+													getData(someValue, function(error, result) {
+															if(error){
+																	reject(error)
+															}
+															else{
+																	resolve(result)
+															}
+													})
+											})
+									}
+								</code></pre>
+							</section>
+							<section>
+								<img src="https://miro.medium.com/max/2000/1*EmAEKcfZrgtNZZU9fWRcCA.png" />
+							</section>
+							<section>
+								<pre><code class="hljs" data-trim contenteditable>
+										const axios = require(‘axios’);
+										axios.get(‘http://www.somepage.com')
+										.then(function (response) {
+												return axios.get(`http://www.somepage.com/${response.someValue}`)
+										})
+										.then(function response {
+												// Handle response
+										})
+										.catch(function (error) {
+												// Handle error.
+										})
+								</code></pre>
+							</section>
+							<section>
+								<h1>Promise hell</h1>
+								<img src="https://miro.medium.com/max/2000/1*xf9HV-PYyu-dXzB1hp5New.png" />
+							</section>
+							<section>
+								<h1>async y await</h1>
+								<p>
+									async se usa para declarar que una función va a realizar operaciones asincronas <br />
+									await se usa para indicar que queremos "esperar" el resultado 
+								</p>
+							</section>
+							<section>
+								<pre><code class="hljs" data-trim contenteditable>
+									async function getSomeAsyncData(value){
+										const result = await fetchTheData(someUrl, value)
+										return result
+									}
+								</code></pre>
+							</section>
+							<section>
+								<pre><code class="hljs" data-trim contenteditable>
+									async function fetchTheFirstData(value) {
+											return await get("someUrl", value)
+									}
+									async function fetchTheSecondData(value) {
+											return await getFromDatabase(value)
+									}
+									async function getSomeData(value) {
+											const firstResult = await fetchTheFirstData(value)
+											const result = await fetchTheSecondData(firstResult.someValue)
+									}
+								</code></pre>
+							</section>
+							<section>
+								<pre><code class="hljs" data-trim contenteditable>
+										function scaryClown() {
+											return new Promise(resolve => {
+												setTimeout(() => {
+													resolve('(❁○ ワ ○)')
+												}, 2000)
+											})
+										}
+										
+										async function msg() {
+											const msg = await scaryClown()
+											console.log('Message:', msg)
+										}
+										
+										msg()
+								</code></pre>
+							</section>
+							<section>
+								<pre><code class="hljs" data-trim contenteditable>
+										function who() {
+											return new Promise(resolve => {
+												setTimeout(() => {
+													resolve('(❁○ ワ ○) ')
+												}, 200)
+											});
+										}
+										
+										function what() {
+											return new Promise(resolve => {
+												setTimeout(() => {
+													resolve('lurks')
+												}, 300)
+											})
+										}
+										
+										function where() {
+											return new Promise(resolve => {
+												setTimeout(() => {
+													resolve('in the shadows')
+												}, 500)
+											})
+										}
+										
+										async function msg() {
+											const a = await who()
+											const b = await what()
+											const c = await where()
+										
+											console.log(`${ a } ${ b } ${ c }`)
+										}
+										
+										msg()
+								</code></pre>
+							</section>
+							<section>
+								<h1>Generators</h1>
+							</section>
+							<section>
+								<pre><code class="hljs" data-trim contenteditable>
+									function * spartaGenerator() {
+										yield 'This';
+										yield 'is';
+										yield 'sparta.'
+									}
+
+									const spartaObject = spartaGenerator()
+
+									spartaObject.next()
+								</code></pre>
+							</section>
+							<section>
+								<pre><code class="hljs" data-trim contenteditable>
+										function fetchJson(url) {
+											return fetch(url)
+											.then(request => request.text())
+											.then(text => {
+													return JSON.parse(text)
+											})
+									}
+								</code></pre>
+							</section>
+							<section>
+								<pre><code class="hljs" data-trim contenteditable>
+										const fetchJson = function *(url) {
+											let request = yield fetch(url)
+											let text = yield request.json()
+											return JSON.parse(text)
+										}
+								</code></pre>
+							</section>
+							<section>
+								<pre><code class="hljs" data-trim contenteditable>
+										function * naturalNumbers() {
+											let num = 1
+											while (true) {
+												yield num
+												num = num + 1
+											}
+										}
+										const numbers = naturalNumbers()
+								</code></pre>
+							</section>
+							<section>
+								<pre><code class="hljs" data-trim contenteditable>
+										function * fibonacci(seed1, seed2) {
+											while (true) {
+												yield (() => {
+													seed2 = seed2 + seed1
+													seed1 = seed2 - seed1
+													return seed2
+												})()
+											}
+										}
+										
+										const fib = fibonacci(0, 1)
+										fib.next()
+								</code></pre>
+							</section>
+				</section>
+
+				<section>
+					<h1>Recomendaciones</h1>
+					<a href="https://mostly-adequate.gitbooks.io/mostly-adequate-guide/content/">
+						https://mostly-adequate.gitbooks.io/mostly-adequate-guide/content/
+					</a>
+				</section>
+				
 				<section style="text-align: left;">
 					<h1>Fin</h1>
 					<p>
-						- Proxima clase: npm + dependency management <br />
+						- Proxima clase: react <br />
 						- &iquest;Preguntas?
 					</p>
 				</section>
