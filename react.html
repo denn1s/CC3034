@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+      class MyButton extends React.Component {
+        onClick() {
+          alert(`You pressed the button ${this.props.text}`)
+          this.props.callback()
+        }
+
+        render() {
+          return (
+            <button onClick={this.onClick.bind(this)}>
+              {this.props.text}
+            </button>
+          )
+        }
+      }
+
+      class App extends React.Component {
+        afterPress() {
+          window.location = 'http://google.com'
+        }
+
+        render() {
+          return (
+            <div>
+              <MyButton text="HOLAA" callback={this.afterPress} />
+              <MyButton text="ADIOO" callback={this.afterPress} />
+            </div>
+          )
+        }
+      }
+
+      ReactDOM.render(
+        <App />,
+        document.getElementById('root')
+      )
+    </script>
+  </body>
+</html>

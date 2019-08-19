@@ -1,0 +1,56 @@
+<html>
+  <body>
+    <script>
+      class MyButton {
+          constructor(text) {
+              this.text = text
+          }
+      
+          onClick(callback) {
+            alert(`You pressed the button ${this.text}`)
+            callback()
+          }
+      
+          render(parent, props) {
+            const { doThisNext, color } = props
+            const button = document.createElement('button')
+            button.append(this.text)
+            button.onclick = this.onClick.bind(this, doThisNext)
+
+            button.style.backgroundColor = color
+            button.style.border = 'none'
+            button.style.padding = '20px'
+
+            parent.append(button)
+          }
+      }
+
+      class App {
+        afterPress() {
+          window.location = 'http://google.com'
+        }
+
+        changeTextForButton1(button) {
+          button.text = 'NEW TEXT'
+          button.render(this.parent, { doThisNext: this.afterPress, color: "pink" })
+        }
+
+        render(parent) {
+          this.parent = parent
+          const myButton1 = new MyButton('HOLA')
+          const myButton2 = new MyButton('ADIOS')
+
+          myButton1.render(parent, { doThisNext: this.afterPress, color: "pink" })
+          myButton2.render(parent, {
+            doThisNext: this.changeTextForButton1.bind(this, myButton1), 
+            color: "orange"
+          })
+        }
+      }
+
+      const app = new App()
+      app.render(document.body)
+
+    </script>
+  </body>
+</html>
