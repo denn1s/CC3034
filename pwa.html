@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Tecnologias web</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+        <section>
+            <h1>Sistemas y Tecnologías Web</h1>
+            <h3>PWA</h3>
+        </section>
+        
+        <section>
+          <section>
+            <h1>&iquest;Cómo creamos una aplicación móvil?</h2>
+          </section>
+          <section>
+            <h2>Lo primero es escoger en qué dispositivos va a correr</h2>
+            <img src="https://mybroadband.co.za/news/wp-content/uploads/2016/08/Android-vs-Apple.jpg" />
+          </section>
+          <section>
+            <h2>Luego debemos es escoger un lenguaje</h2>
+            <img src="https://lvivity.com/wp-content/uploads/2018/02/mobile-app-languages-1.jpg" />
+          </section>
+          <section>
+            <h2>Finalmente debemos escoger cómo va a llegar a nuestros clientes</h2>
+            <img src="https://www.computerhope.com/jargon/a/app-stores-h.jpg" />
+          </section>
+          <section>
+            <h2>Luego...</h2>
+          </section>
+          <section>
+            <img src="https://developer.android.com/studio/images/sdk-manager-tools_2x.png" />
+          </section>
+          <section>
+            <img src="https://www.cleveroad.com/images/article-previews/app-store-fees.png" />
+          </section>
+          <section>
+            <img src="https://arkenea.com/blog/wp-content/uploads/2015/08/Happy-Play-Time-rejection-email.png" />
+          </section>
+          <section>
+            <img src="https://arkenea.com/blog/wp-content/uploads/2015/08/apple.png" />
+          </section>
+          <section>
+            <img src="http://akhun.com/seo/skitch/Inbox_%2821_messages%29-20090611-003253.png" />
+          </section>
+          <section>
+            <img src="https://apptooltester.com/wp-content/uploads/2017/08/apple-4.2.6-guideline.png" />
+          </section>
+          <section>
+            <img src="https://cdn.macrumors.com/article-new/2018/02/emojipedia-reaction-match-app-examples.jpg" />
+          </section>
+          <section>
+            Por si fuera poco, ya nadie quiere instalar mas apps
+            <img src="https://mlessg81fle6.i.optimole.com/w:auto/h:auto/q:55/https://www.ikream.com/wp-content/uploads/2016/12/iPhone-7-storage-full.jpg" />
+          </section>
+          <section>
+            <img src="https://preview.redd.it/9cjd70092q201.jpg?width=640&crop=smart&auto=webp&s=b07c55542163e9abe5508e631c41a945dea406b7" />
+          </section>
+          <section>
+            <h2>Además de todo esto, nuestros clientes de todas maneras quieren un sitio web...</h2>
+          </section>
+        </section>
+
+        <section>
+            <section>
+                <h1>Progressive Web Apps</h1>
+            </section>
+            <section>
+              <h1><img src="https://cordova.apache.org/static/img/cordova_bot.png" />?</h1>
+            </section>
+            <section>
+                Que es lo que en realidad resuelve una app?
+            </section>
+            <section>
+                Basicamente, quisieramos deshacernos de este intermediario.
+                Quisieramos poder aprovechar el código y las utilidades que ya creamos para el sitio web
+                Quisieramos poder acceder a las utilidades del telefono
+                Quisieramos poder acceder a la aplicación offline
+                Quisieramos poder tener push notifications
+            </section>
+            <section>
+                Los web browsers ya pueden hacer todas estas cosas
+            </section>
+            <section>
+                Una pwa es una aplicación que utiliza tecnologías web, pero que se ve y se siente como una aplicación mobil
+            </section>
+            <section>
+              No necesitan aprender un nuevo lenguaje o un nuevo framework, ni siquiera instalar nada nuevo
+            </section>
+            <section>
+            https://appetiser.com.au/wp-content/uploads/2019/02/Progressive-Web-Apps.png
+            </section>
+            <section>
+              Sin embargo, tomen nota de que esto es tecnología nueva. Su soporte de navegadores no es perfecto y las especificaciones aún cambian constantemente.
+            </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>DEMO</h1>
+          </section>
+          <section>
+            <a href="http://materializecss.com">
+              materialize.css
+            </a>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+&lt;nav&gt;
+  &lt;div class="nav-wrapper"&gt;
+    &lt;a href="#" class="brand-logo center"&gt;My Climate App&lt;/a&gt;
+    &lt;span class="right"&gt;
+      &lt;i class="material-icons sidenav-trigger"&gt;refresh&lt;/i&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Lighthouse</h1>
+          </section>
+          <section>
+            <h2>manifest.json</h2>
+
+            <pre><code class="hljs" data-trim contenteditable>
+              # manifest.json
+              {
+                  "name": "My Weather App",
+                  "short_name": "WeApp",
+                  "icons": [{
+                    "src": "/images/icons/icon-128x128.png",
+                      "sizes": "128x128",
+                      "type": "image/png"
+                    }, {
+                      "src": "/images/icons/icon-144x144.png",
+                      "sizes": "144x144",
+                      "type": "image/png"
+                    }, {
+                      "src": "/images/icons/icon-152x152.png",
+                      "sizes": "152x152",
+                      "type": "image/png"
+                    }, {
+                      "src": "/images/icons/icon-192x192.png",
+                      "sizes": "192x192",
+                      "type": "image/png"
+                    }, {
+                      "src": "/images/icons/icon-256x256.png",
+                      "sizes": "256x256",
+                      "type": "image/png"
+                    }, {
+                      "src": "/images/icons/icon-512x512.png",
+                      "sizes": "512x512",
+                      "type": "image/png"
+                    }],
+                  "start_url": "/index.html",
+                  "display": "standalone",
+                  "background_color": "#00FF00",
+                  "theme_color": "#FF0000"
+                }
+                # index.html
+                &lt;link rel="manifest" href="/manifest.json"&gt;
+            </code></pre>
+          </section>
+          <section>
+            <a href="https://developers.google.com/web/fundamentals/web-app-manifest">
+              https://developers.google.com/web/fundamentals/web-app-manifest
+            </a>
+          </section>
+          <section>
+            Devtools > Application > Manifest
+          </section>
+          <section>
+            Safari (?)
+            https://webkit.org/status/#specification-web-app-manifest
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+&lt;meta name="apple-mobile-web-app-capable" content="yes"&gt;
+&lt;meta name="apple-mobile-web-app-status-bar-style" content="black"&gt;
+&lt;meta name="apple-mobile-web-app-title" content="Weather PWA"&gt;
+&lt;link rel="apple-touch-icon" href="/images/icons/icon-152x152.png"&gt;
+            </code></pre>
+            </section>
+        </section>
+
+        <section>
+          <section>
+          <h1>Offline Functionality</h1>
+          </section>
+          <section>
+          <h1>Service Workers</h1>
+          </section>
+          <section>
+            Los service workers proveen funcionalidad offline y de background, entre otras como push notifications.
+          </section>
+          <section>
+            <p>
+Funcionan en base a eventos, que escuchan en diferentes etapas de su ciclo de vida
+            </p>
+          </section>
+          <section>
+            <h2>Registrando un service worker</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+</code></pre>
+          </section>
+          <section>
+          Devtools > Application > ServiceWorkers
+          </section>
+          <section>
+            <h2>Ciclo de vida de los service workers</h2>
+            <img src="https://developers.google.com/web/fundamentals/primers/service-workers/images/sw-lifecycle.png" />
+          </section>
+          <section>
+<img src="https://mdn.mozillademos.org/files/12636/sw-lifecycle.png" />
+          </section>
+          <section>
+<img src="https://mdn.mozillademos.org/files/12632/sw-events.png" />
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+self.addEventListener('install', function(event) {
+  // Perform install steps
+});
+</code></pre>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    // magic goes here
+  );
+});
+</code></pre>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim contenteditable>
+self.addEventListener('fetch', (event) => {
+    console.log('service worker fetch')
+    event.respondWith(new Response('Hello from your friendly neighbourhood service worker!'));
+});
+</code></pre>
+          </section>
+<section>
+          <h2>Cache</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+self.addEventListener('fetch', (event) => {
+    console.log('service worker fetch')
+    event.respondWith(new Response('Hello from your friendly neighbourhood service worker!'));
+});
+</code></pre>
+          </section>
+          <section>
+<pre><code class="hljs" data-trim contenteditable>
+const urlsToCache = [
+  '/',
+  '/css/materialize.min.css',
+  '/js/materialize.min.js'
+]
+
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open('my-first-cache-v1')
+      .then(function(cache) {
+        console.log('Opened cache');
+        return cache.addAll(urlsToCache);
+      })
+  )
+})
+
+</code></pre>
+          </section>
+          <section>
+<pre><code class="hljs" data-trim contenteditable>
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        // Cache hit - return response
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      }
+    )
+  )
+})
+</code></pre>
+          </section>
+        </section>
+
+            <section style="text-align: left;">
+                <h1>Fin</h1>
+            </section>
+        </div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

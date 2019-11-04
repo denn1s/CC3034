@@ -46,6 +46,17 @@
 				<section>
 					<section>
           	<h1>NODE.JS</h1>
+          </section>
+          <section>
+            <h1>&iquest;Qué es?</h1>
+          </section>
+          <section>
+            <p>
+              Utiliza V8 (chrome) para poder correr Javascript en sus computadoras (y en los servidores).
+              <br />
+              <br />
+              Permite que Javascript pueda hacer cosas que normalmente no puede, como servir http y acceder a archivos.
+            </p>
 					</section>
           <section>
             <ul>
@@ -61,9 +72,19 @@
                 <ul>
                   <li>con redes</li>
                   <li>con filesystems</li>
-                  <li>con I/O en general</li>                  
+                  <li>con I/O en general</li>
                 </ul>
               </li>
+            </ul>
+					</section>
+          <section>
+            <h1>&iquest;Para qué lo usamos?</h1>
+          </section>
+          <section>
+            <ul>
+              <li>Para correr utilidades escritas en Javascript</li>
+              <li>Para correr servidores de javascript</li>
+              <li>Para conectar servicios web</li>
             </ul>
 					</section>
           <section>
@@ -74,85 +95,25 @@
             <p>
               Read Eval Print Loop
             </p>
-					</section>
+          </section>
           <section>
-            <h2>require()</h2>
-					</section>
+            <ul>
+              <li>&iquest;window?</li>
+              <li>&iquest;document?</li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>global</li>
+              <li>process</li>
+            </ul>
+          </section>
         </section>
-
         <section>
-					<section>
-          	<h2>Asynchronous Programming</h2>
-					</section>
-          <section>
-            <h3>Callbacks</h3>
-            <pre><code class="hljs" data-trim contenteditable>
-              function doThis(doThisOtherThing) {
-                // do some stuff
-                doThisOtherThing()
-              }
-            </code></pre>
-					</section>
-          <section>
-            <h4>Ejemplo: JQuery GET</h4>
-            <pre><code class="hljs" data-trim contenteditable>
-              $.get(function (data) {
-                // do stuff with data
-              })
-              doOtherStuff()  // this will be called before the callback! (probably)
-            </code></pre>
-					</section>
-          <section>
-            <h3>Promises</h3>
-            <pre><code class="hljs" data-trim contenteditable>
-              deThis().then(doThisOtherThing)
-            </code></pre>
-					</section>
-          <section>
-            <h4>Ejemplo de declaración de promesas: ES6</h4>
-            <pre><code class="hljs" data-trim contenteditable>
-              function doThis() {
-                return new Promise(function(resolve, reject) {
-                  // do some stuff
-                  if (allOk) {
-                    resolve()
-                  } else {
-                    reject()
-                  }
-                })
-              }
-            </code></pre>
-					</section>
-          <section>
-            <h3>Events</h3>
-            <pre><code class="hljs" data-trim contenteditable>
-              myObject.on('someEvent', () => {
-                console.log('an event occurred!');
-              });
-              // ...
-              myObject.emit('event');
-            </code></pre>
-					</section>
-          <section>
-            <h4>Ejemplo EventEmmiter</h4>
-            <pre><code class="hljs" data-trim contenteditable>
-              const EventEmitter = require('events');
-
-              class MyEmitter extends EventEmitter {}
-
-              const myEmitter = new MyEmitter();
-              myEmitter.on('event', () => {
-                console.log('an event occurred!');
-              });
-              myEmitter.emit('event');
-            </code></pre>
-					</section>
+          <h2>Modulos</h2>
         </section>
         <section>
           <h1>Ejemplo de un modulo simple</h1>
-          <p>
-            npm init / module.exports
-          </p>
         </section>
         <section>
 					<section>
@@ -160,7 +121,16 @@
             <p>
               <a href="https://npmjs.com">https://npmjs.com</a>
             </p>
-					</section>
+          </section>
+          <section>
+            <p>npm init</p>
+          </section>
+          <section>
+            <p>package.json</p>
+          </section>
+          <section>
+            <p>npm install xxxx</p>
+          </section>
           <section>
             <ul>
               <li>npm config list</li>
@@ -184,6 +154,9 @@
                 npm list
               </aside>
             </ul>
+          </section>
+          <section>
+            <p>Ejemplo de un servidor</p>
           </section>
           <section>
             <p>

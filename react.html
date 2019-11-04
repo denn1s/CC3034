@@ -9,17 +9,16 @@
   </head>
   <body>
     <div id="root"></div>
+
     <script type="text/babel">
-
       class MyButton extends React.Component {
-        onClick() {
-          alert(`You pressed the button ${this.props.text}`)
-          this.props.callback()
+        handleClick(callback) {
+          alert(this.props.text)
+          callback()
         }
-
         render() {
           return (
-            <button onClick={this.onClick.bind(this)}>
+            <button onClick={this.handleClick.bind(this, this.props.afterClick)}>
               {this.props.text}
             </button>
           )
@@ -27,23 +26,33 @@
       }
 
       class App extends React.Component {
-        afterPress() {
-          window.location = 'http://google.com'
+        constructor(props) {
+          super(props)
+
+          this.state = {
+            button1Text: "Hello"
+          }
+        }
+
+        changeButtonText() {
+          this.setState({
+            button1Text: "Lali HO"
+          })
         }
 
         render() {
           return (
-            <div>
-              <MyButton text="HOLAA" callback={this.afterPress} />
-              <MyButton text="ADIOO" callback={this.afterPress} />
-            </div>
+            <main>
+              <MyButton text={this.state.button1Text} />
+              <MyButton text="ADIEU" afterClick={this.changeButtonText.bind(this)}  />
+            </main>
           )
         }
       }
 
       ReactDOM.render(
         <App />,
-        document.getElementById('root')
+        document.getElementById("root")
       )
     </script>
   </body>

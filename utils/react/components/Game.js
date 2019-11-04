@@ -63,7 +63,7 @@ export default class Game extends React.Component {
             position: 'absolute',
             top: 0,
             left: 0
-        }        
+        }
 
         const bulletPos = { y: this.state.bulletPos, x: this.state.playerPos }
 

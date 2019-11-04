@@ -2,55 +2,52 @@
   <body>
     <script>
       class MyButton {
-          constructor(text) {
-              this.text = text
-          }
-      
-          onClick(callback) {
-            alert(`You pressed the button ${this.text}`)
-            callback()
-          }
-      
-          render(parent, props) {
-            const { doThisNext, color } = props
-            const button = document.createElement('button')
-            button.append(this.text)
-            button.onclick = this.onClick.bind(this, doThisNext)
+        constructor(text) {
+          this.text = text
+        }
 
-            button.style.backgroundColor = color
-            button.style.border = 'none'
-            button.style.padding = '20px'
+        handleClick(callback) {
+          alert(`You pressed ${this.text}`)
+          callback()
+        }
 
-            parent.append(button)
-          }
+        render(parent, props) {
+          const { afterClick, color } = props
+          const button = document.createElement("button")
+          button.append(this.text)
+
+          button.style.padding = "20px"
+          button.style.backgroundColor = color
+          button.onclick = this.handleClick.bind(this, afterClick)
+
+          parent.append(button)
+        }
       }
 
       class App {
-        afterPress() {
-          window.location = 'http://google.com'
+        goToGoogle() {
+          window.location = "http://google.com"
         }
 
-        changeTextForButton1(button) {
-          button.text = 'NEW TEXT'
-          button.render(this.parent, { doThisNext: this.afterPress, color: "pink" })
+        changeOtherButton() {
+          button1.text = "nuevo texto"
         }
 
         render(parent) {
-          this.parent = parent
-          const myButton1 = new MyButton('HOLA')
-          const myButton2 = new MyButton('ADIOS')
+          const button1 = new MyButton("HOLA")
+          const button2 = new MyButton("ADIOS")
 
-          myButton1.render(parent, { doThisNext: this.afterPress, color: "pink" })
-          myButton2.render(parent, {
-            doThisNext: this.changeTextForButton1.bind(this, myButton1), 
-            color: "orange"
-          })
+
+          const main = document.createElement("main")
+          button1.render(main, { afterClick: this.goToGoogle, color: "pink" })
+          button2.render(main, { afterClick: this.changeOtherButton, color: "purple" })
+
+          parent.append(main)
         }
       }
 
       const app = new App()
       app.render(document.body)
-
     </script>
   </body>
 </html>
